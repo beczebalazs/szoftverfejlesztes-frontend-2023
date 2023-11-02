@@ -1,12 +1,13 @@
 import React from 'react';
+import Providers from './providers/Providers';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router/Router';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Webshop
-      </header>
-    </div>
+    <Providers>
+			<RouterProvider router={router} />
+		</Providers>
   );
 }
 
