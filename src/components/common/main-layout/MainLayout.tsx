@@ -10,14 +10,16 @@ import Footer from './footer/Footer';
 
 const MainLayout: FC<MainLayoutProps> = props => {
 	return (
-		<Box display="flex"  sx={{ ...props.sx}}>
-			<Appbar breadcrumbs={props.breadcrumbs} />
-			<Sidebar />
-			<Main>{props.children}</Main>
-			{props.modals?.map((modal, index) => (
-				<Fragment key={index}>{modal}</Fragment>
-			))}
-				{/* <Footer /> */}
+		<Box display="flex" flexDirection={'column'} sx={{ ...props.sx }}>
+			<Box display={'flex'}>
+				<Appbar breadcrumbs={props.breadcrumbs} />
+				<Sidebar />
+				<Main>{props.children}</Main>
+				{props.modals?.map((modal, index) => (
+					<Fragment key={index}>{modal}</Fragment>
+				))}
+			</Box>
+			<Footer />
 		</Box>
 	);
 };

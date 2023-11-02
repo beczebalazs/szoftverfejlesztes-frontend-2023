@@ -3,6 +3,7 @@ import { FC } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
 	Autocomplete,
+	Box,
 	IconButton,
 	Stack,
 	TextField,
@@ -21,6 +22,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
 	breadcrumbs?: BreadCrumbsProps[];
@@ -32,6 +34,8 @@ const AppBar: FC<Props> = props => {
 	const isOpen = useAppSelector(state => state.navigation.sidebar.isOpen);
 
 	const isDownMd = useMediaQuery<Theme>(theme => theme.breakpoints.down('md'));
+
+	const navigate = useNavigate();
 
 	return (
 		<MuiAppBar
@@ -74,7 +78,9 @@ const AppBar: FC<Props> = props => {
 								/>
 							</IconButton>
 						)}
-						<img src={'/images/logo.svg'} alt="Logo" />
+						<Box onClick={() => navigate('/')} sx={{cursor: 'pointer'}}>
+							<img src={'/images/logo.svg'} alt="Logo" />
+						</Box>
 					</Stack>
 					<Autocomplete
 						disablePortal
@@ -94,15 +100,39 @@ const AppBar: FC<Props> = props => {
 						)}
 					/>
 					<Stack direction="row" alignItems="center">
-						<Typography sx={{ color: 'neutral.light', display: 'flex', alignItems: 'center', mr: 2, gap: .5 }}>
+						<Typography
+							sx={{
+								color: 'neutral.light',
+								display: 'flex',
+								alignItems: 'center',
+								mr: 2,
+								gap: 0.5,
+							}}
+						>
 							<PermIdentityIcon />
 							Account
 						</Typography>
-						<Typography sx={{ color: 'neutral.light', display: 'flex', alignItems: 'center', mr: 2, gap: .5 }}>
+						<Typography
+							sx={{
+								color: 'neutral.light',
+								display: 'flex',
+								alignItems: 'center',
+								mr: 2,
+								gap: 0.5,
+							}}
+						>
 							<FavoriteBorderIcon />
 							Favorites
 						</Typography>
-						<Typography sx={{ color: 'neutral.light', display: 'flex', alignItems: 'center', mr: 2, gap: .5 }}>
+						<Typography
+							sx={{
+								color: 'neutral.light',
+								display: 'flex',
+								alignItems: 'center',
+								mr: 2,
+								gap: 0.5,
+							}}
+						>
 							<ShoppingCartOutlinedIcon />
 							Cart
 						</Typography>
