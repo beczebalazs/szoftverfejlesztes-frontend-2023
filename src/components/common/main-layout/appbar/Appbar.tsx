@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {
 	Autocomplete,
 	Box,
+	Button,
 	IconButton,
 	Stack,
 	TextField,
@@ -78,7 +79,7 @@ const AppBar: FC<Props> = props => {
 								/>
 							</IconButton>
 						)}
-						<Box onClick={() => navigate('/')} sx={{cursor: 'pointer'}}>
+						<Box onClick={() => navigate('/')} sx={{ cursor: 'pointer' }}>
 							<img src={'/images/logo.svg'} alt="Logo" />
 						</Box>
 					</Stack>
@@ -124,18 +125,21 @@ const AppBar: FC<Props> = props => {
 							<FavoriteBorderIcon />
 							Favorites
 						</Typography>
-						<Typography
+						<Button
+							variant="text"
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
+								py: 1,
 							}}
+							onClick={() => navigate('/my-cart')}
 						>
 							<ShoppingCartOutlinedIcon />
 							Cart
-						</Typography>
+						</Button>
 					</Stack>
 				</Stack>
 			</Toolbar>
