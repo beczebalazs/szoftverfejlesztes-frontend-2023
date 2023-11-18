@@ -13,6 +13,7 @@ import GamingPage from '../pages/gaming';
 import LoginPage from '../pages/login';
 import SignUpPage from '../pages/sign-up';
 import ProductDetailPage from '../pages/produt-detail';
+import CamerasPage from '../pages/cameras';
 
 const HomePage = lazy(() => import('../pages/index'));
 
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
 		path: '/cameras',
 		element: (
 			<Suspense fallback={<PageLoading />}>
-				<HomePage />
+				<CamerasPage />
 			</Suspense>
 		),
 	},
