@@ -1,0 +1,16 @@
+[
+	{
+		"id": 1,
+		"name": "Jaxson Aminoff",
+		"date": "Jan 12, 2088",
+		"rating": 5,
+		"comment": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, sunt in culpa qui officia animi, id est laborum et dolorum fuga."
+	},
+	{
+		"id": 2,
+		"name": "James Schleifer",
+		"date": "Jan 12, 2088",
+		"rating": 4,
+		"comment": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, sunt in culpa qui officia animi, id est laborum et dolorum fuga."
+	}
+]
