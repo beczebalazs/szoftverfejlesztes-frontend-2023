@@ -15,22 +15,17 @@ interface Props {
 const SignUp: FC<Props> = props => {
 	return (
 		<AuthLayout>
-			<Avatar sx={{ backgroundColor: 'primary.main', marginBottom: 2 }}>
-				<LockOutlinedIcon sx={{ color: 'white' }} />
-			</Avatar>
 			<Typography
 				variant="h3"
 				sx={{
-					color: 'primary.main',
+					color: 'neutral.70',
+					fontWeight: 'bold',
+					fontSize: 48,
 				}}
 			>
-				signupLayout.title
+				Registration
 			</Typography>
 			<SignUpForm input={props.input} />
-
-			<Button variant="text" color="primary" href="/login" sx={{ mt: 5 }}>
-				signupLayout.back
-			</Button>
 		</AuthLayout>
 	);
 };

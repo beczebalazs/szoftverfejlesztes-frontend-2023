@@ -14,7 +14,7 @@ const LastNameField = () => {
 			defaultValue=""
 			render={({ field: { value, onChange }, fieldState: { error } }) => (
 				<TextField
-					placeholder={'signupTextfields.lastName'}
+					placeholder={'Last name'}
 					value={value}
 					onChange={onChange}
 					error={!!error}
@@ -26,7 +26,12 @@ const LastNameField = () => {
 							</InputAdornment>
 						),
 					}}
-					sx={{ width: 1 }}
+					sx={{ width: '100%',
+					".MuiInputBase-root": {height: '48px', 
+					borderColor: 'neutral.70',
+					borderRadius:'8px',},
+					
+				}}
 				/>
 			)}
 		/>

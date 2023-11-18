@@ -17,13 +17,11 @@ const Login: FC = () => {
 					color: 'neutral.70',
 					fontWeight: 'bold',
 					fontSize: 48,
-					
-				}}	
+				}}
 			>
 				Login
 			</Typography>
 			<LoginForm />
-
 		</AuthLayout>
 	);
 };

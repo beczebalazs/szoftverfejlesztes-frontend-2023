@@ -10,7 +10,7 @@ const AuthLayout: FC<Props> = props => {
 	return (
 		<Box
 			sx={{
-				height: '562px',
+				height: 'auto',
 				width: '416px',
 				display: 'flex',
 				flexDirection: 'column',

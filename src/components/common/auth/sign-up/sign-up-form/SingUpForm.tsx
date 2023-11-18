@@ -1,13 +1,12 @@
 import { createContext, FC, useContext, useState } from 'react';
 
 import { LoadingButton } from '@mui/lab';
-import { Unstable_Grid2 as Grid, Stack } from '@mui/material';
+import { Button, Unstable_Grid2 as Grid, Stack } from '@mui/material';
 import { FormProvider } from 'react-hook-form';
 
 import EmailField from './email-field/EmailField';
 import FirstNameField from './first-name-field/FirstNameField';
 import LastNameField from './last-name-field/LastNameField';
-import PasswordConfirmationField from './password-confirmation-field/PasswordConfirmationField';
 import PasswordField from './password-field/PasswordField';
 import UsernameField from './username-field/UsernameField';
 // import usePostSignUpMutation from '~hooks/auth/usePostSignUpMutation';
@@ -73,21 +72,38 @@ const SignUpForm: FC<Props> = props => {
 					) : (
 						<>
 							{props.input.includes('firstName') && <FirstNameField />}
-
 							{props.input.includes('lastName') && <LastNameField />}
 						</>
 					)}
 					{props.input.includes('username') && <UsernameField />}
 					{props.input.includes('email') && <EmailField />}
 					{props.input.includes('password') && <PasswordField />}
-					{props.input.includes('passwordConfirmation') && <PasswordConfirmationField />}
-					<LoadingButton
+					<LoadingButton variant="contained"
 						// loading={postSignUpMutation.isLoading}
-						sx={{ width: 1 / 1, mt: 3 }}
+						sx={{ mx:'60px',
+						mt: 2, 
+						fontWeight: 'bold', 
+						fontSize: 20,
+						border: '2px solid',
+						borderColor: 'primary.main',
+						borderRadius: '8px',
+						py: 1,
+						px: 7,
+						width: '100%',
+						color: 'neutral.10'}}
 						type="submit"
 					>
-						signupTextfields.signUp
+						Create Account
 					</LoadingButton>
+				<Button variant="text"	
+				sx={{ mx:'60px',
+						mt: 2, 
+						fontWeight: 'bold', 
+						fontSize: 16,
+						width: '100%',
+						color: 'primary.main'}}>
+					Already have an account? Sign in 
+				</Button>
 				</Stack>
 			</FormProvider>
 		</SignUpFormCtx.Provider>

@@ -21,7 +21,7 @@ const PasswordField = () => {
 			render={({ field: { value, onChange }, fieldState: { error } }) => (
 				<TextField
 					type={showPassword ? 'text' : 'password'}
-					placeholder={'signupTextfields.password'}
+					placeholder={'Password'}
 					value={value}
 					onChange={onChange}
 					error={!!error}
@@ -40,7 +40,12 @@ const PasswordField = () => {
 							</>
 						),
 					}}
-					sx={{ width: 1 / 1 }}
+					sx={{ width: '100%', 
+					".MuiInputBase-root": {height: '48px', 
+					borderColor: 'neutral.70',
+					borderRadius:'8px',},
+					
+				}}
 				/>
 			)}
 		/>
