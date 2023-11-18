@@ -13,6 +13,10 @@ import GamingPage from '../pages/gaming';
 import LoginPage from '../pages/login';
 import SignUpPage from '../pages/sign-up';
 import UserDetails from '../pages/user-details';
+import CheckoutPage from '../pages/checkout';
+import MyCartPage from '../pages/my-cart';
+import ProductDetailPage from '../pages/produt-detail';
+import CamerasPage from '../pages/cameras';
 
 const HomePage = lazy(() => import('../pages/index'));
 
@@ -45,7 +49,7 @@ const router = createBrowserRouter([
 		path: '/cameras',
 		element: (
 			<Suspense fallback={<PageLoading />}>
-				<HomePage />
+				<CamerasPage />
 			</Suspense>
 		),
 	},
@@ -118,6 +122,22 @@ const router = createBrowserRouter([
 		element: (
 			<Suspense fallback={<PageLoading />}>
 				<UserDetails />
+		path: '/checkout',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<CheckoutPage />
+			</Suspense>
+		),
+	},
+	{
+		path: '/my-cart',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<MyCartPage />
+		path: '/product-detail',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<ProductDetailPage />
 			</Suspense>
 		),
 	},

@@ -1,0 +1,47 @@
+[
+    {
+		"title": "Phones",
+		"image": "https://s13emagst.akamaized.net/products/40685/40684413/images/res_16a3a662e1b74dd715c857686c585cd7.jpg",
+		"href": "/phone"
+	},
+	{
+		"title": "Headphones",
+		"image": "https://s13emagst.akamaized.net/products/53458/53457332/images/res_64cc3ef89a16222a64d98161215c6243.jpg",
+		"href": "/headphones"
+	},
+	{
+		"title": "Cameras",
+		"image": "https://s13emagst.akamaized.net/products/30708/30707527/images/res_5753fa04d1c14585e3972311f8ed0cfb.jpg",
+		"href": "/cameras"
+	},
+	{
+		"title": "Laptops",
+		"image": "https://s13emagst.akamaized.net/products/33874/33873196/images/res_2ce18bde5ec79adc307a8d4fc03e40a3.jpg",
+		"href": "/laptops"
+	},
+	{
+		"title": "Tvs",
+		"image": "https://s13emagst.akamaized.net/products/43490/43489382/images/res_f2a64219d2ad768d433b0cf9269f9771.jpg",
+		"href": "/tvs"
+	},
+	{
+		"title": "Speakers",
+		"image": "https://s13emagst.akamaized.net/products/31167/31166738/images/res_2a7952a6fe485b9da95695d69fb037f1.jpg",
+		"href": "/speaker"
+	},
+	{
+		"title": "Watches",
+		"image": "https://s13emagst.akamaized.net/products/50840/50839057/images/res_c96dbd8dfb9444faae7625b89956487c.png",
+		"href": "/watches"
+	},
+	{
+		"title": "Computers",
+		"image": "https://s13emagst.akamaized.net/products/16684/16683993/images/res_774e6d57fc53f4854493d39dfd297118.jpg",
+		"href": "/computers"
+	},
+	{
+		"title": "Gaming",
+		"image": "https://s13emagst.akamaized.net/products/45341/45340461/images/res_b111a1ceb31566d82c96eb3f82738a07.jpg",
+		"href": "/gaming"
+	}
+]

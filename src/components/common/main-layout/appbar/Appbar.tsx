@@ -139,6 +139,7 @@ const AppBar: FC<Props> = props => {
 								gap: 0.5,
 								px: 1,
 							}}
+							onClick={() => navigate('/my-cart')}
 						>
 							<ShoppingCartOutlinedIcon />
 							Cart

@@ -1,0 +1,81 @@
+[
+	{
+		"name": "Color",
+		"options": [
+			{ "key": "color1", "value": "Black" },
+			{ "key": "color2", "value": "White" },
+			{ "key": "color3", "value": "Blue" },
+			{ "key": "color4", "value": "Red" },
+			{ "key": "color5", "value": "Green" }
+		]
+	},
+	{
+		"name": "Storage",
+		"options": [
+			{ "key": "storage1", "value": "64GB" },
+			{ "key": "storage2", "value": "128GB" },
+			{ "key": "storage3", "value": "256GB" }
+		]
+	},
+	{
+		"name": "Screen Size",
+		"options": [
+			{ "key": "screen1", "value": "5.5 inches" },
+			{ "key": "screen2", "value": "6.1 inches" },
+			{ "key": "screen3", "value": "6.7 inches" }
+		]
+	},
+	{
+		"name": "Operating System",
+		"options": [
+			{ "key": "os1", "value": "Android" },
+			{ "key": "os2", "value": "iOS" }
+		]
+	},
+	{
+		"name": "Camera Quality",
+		"options": [
+			{ "key": "camera1", "value": "12 MP" },
+			{ "key": "camera2", "value": "48 MP" },
+			{ "key": "camera3", "value": "108 MP" }
+		]
+	},
+	{
+		"name": "Battery Life",
+		"options": [
+			{ "key": "battery1", "value": "3000 mAh" },
+			{ "key": "battery2", "value": "4000 mAh" },
+			{ "key": "battery3", "value": "5000 mAh" }
+		]
+	},
+	{
+		"name": "Processor",
+		"options": [
+			{ "key": "processor1", "value": "Quad Core" },
+			{ "key": "processor2", "value": "Octa Core" }
+		]
+	},
+	{
+		"name": "RAM",
+		"options": [
+			{ "key": "ram1", "value": "4GB" },
+			{ "key": "ram2", "value": "6GB" },
+			{ "key": "ram3", "value": "8GB" }
+		]
+	},
+	{
+		"name": "Water Resistance",
+		"options": [
+			{ "key": "water1", "value": "IP67" },
+			{ "key": "water2", "value": "IP68" }
+		]
+	},
+	{
+		"name": "Warranty",
+		"options": [
+			{ "key": "warranty1", "value": "1 Year" },
+			{ "key": "warranty2", "value": "2 Years" }
+		]
+	}
+]
+
