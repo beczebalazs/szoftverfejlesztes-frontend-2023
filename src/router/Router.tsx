@@ -12,6 +12,8 @@ import ComputersPage from '../pages/computers';
 import GamingPage from '../pages/gaming';
 import LoginPage from '../pages/login';
 import SignUpPage from '../pages/sign-up';
+import CheckoutPage from '../pages/checkout';
+import MyCartPage from '../pages/my-cart';
 
 const HomePage = lazy(() => import('../pages/index'));
 
@@ -109,6 +111,22 @@ const router = createBrowserRouter([
 		element: (
 			<Suspense fallback={<PageLoading />}>
 				<SignUpPage />
+			</Suspense>
+		),
+	},
+	{
+		path: '/checkout',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<CheckoutPage />
+			</Suspense>
+		),
+	},
+	{
+		path: '/my-cart',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<MyCartPage />
 			</Suspense>
 		),
 	},
