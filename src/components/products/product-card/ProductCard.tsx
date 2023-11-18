@@ -3,7 +3,6 @@ import { FC } from 'react';
 import { Box, Button, Paper, Rating, Stack, Typography } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import PhoneImage from './iphone14.jpg';
 
 interface Props {
 	id: string;
@@ -35,7 +34,7 @@ const ProductCard: FC<Props> = props => {
 				</Box>
 				<Box
 					component="img"
-					src={PhoneImage}
+					src={props.image}
 					alt="product image"
 					sx={{ width: '268px', objectFit: 'contain', height: 200 }}
 				/>

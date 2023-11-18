@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
 import Checkbox from '@mui/material/Checkbox/Checkbox';

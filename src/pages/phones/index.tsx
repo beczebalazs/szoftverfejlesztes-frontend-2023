@@ -1,11 +1,12 @@
 import React from 'react';
 import MainLayout from '../../components/common/main-layout/MainLayout';
 import { Unstable_Grid2 as Grid, Stack } from '@mui/material';
-import products from '../../mocks/products.json';
 import ProductCard from '../../components/products/product-card/ProductCard';
 import ProductsFilter from '../../components/products/products-filter/ProductsFilter';
+import usePhonesQuery from '../../hooks/phones/usePhonesQuery';
 
 const PhonesPage = () => {
+    const phones = usePhonesQuery();
 	return (
 		<MainLayout>
 			<Grid container spacing={4}>
@@ -21,8 +22,8 @@ const PhonesPage = () => {
 						/>
 					</Stack>
 				</Grid>
-				<Grid container spacing={4}>
-					{products.map(data => (
+				<Grid container spacing={4} xs={10}>
+					{phones.data?.map((data: any) => (
 						<Grid xs={'auto'} key={data.id}>
 							<ProductCard
 								key={data.id}
