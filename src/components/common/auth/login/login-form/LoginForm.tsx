@@ -8,6 +8,7 @@ import { InputAdornment, Stack, TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import IconButton from '@mui/material/IconButton';
 import { Controller } from 'react-hook-form';
+import Button from '@mui/material/Button';
 
 import useLoginForm from '../../../../../hooks/auth/useLoginForm';
 // import usePostLoginMutation from '~hooks/auth/usePostLoginMutation';
@@ -32,15 +33,20 @@ const LoginForm: FC = () => {
 			// onSubmit={handleSubmit(onSubmit)}
 			alignItems="center"
 			justifyContent="center"
-			sx={{ width: 330 }}
+			sx={{px:'82px'}}
 		>
 			<Controller
 				control={control}
 				name="email"
 				render={({ field: { value, onChange }, fieldState: { error } }) => (
 					<TextField
-						sx={{ width: 1 / 1, mt: 3 }}
-						placeholder={'loginTextfields.email'}
+						sx={{ width: '100%', mt: '54px',
+						".MuiInputBase-root": {height: '48px', 
+						borderColor: 'neutral.70',
+						borderRadius:'8px',},
+						
+					}}
+						placeholder={'Email'}
 						value={value}
 						onChange={onChange}
 						error={!!error}
@@ -61,7 +67,7 @@ const LoginForm: FC = () => {
 				render={({ field: { value, onChange }, fieldState: { error } }) => (
 					<TextField
 						type={showPassword ? 'text' : 'password'}
-						placeholder={'loginTextfields.password'}
+						placeholder={'Password'}
 						value={value}
 						onChange={onChange}
 						error={!!error}
@@ -78,17 +84,46 @@ const LoginForm: FC = () => {
 								</IconButton>
 							),
 						}}
-						sx={{ width: 1 / 1 }}
+						sx={{ 
+							width:'100%', 
+							".MuiInputBase-root": {	height: '48px', borderColor: 'neutral.70',
+													borderRadius:'8px'}
+					  }}
 					/>
 				)}
 			/>
-			<LoadingButton
+			<LoadingButton variant="contained" 
 				// loading={postLoginMutation.isLoading}
-				sx={{ width: 1 / 1, mt: 3 }}
+				sx={{ mx:'60px',
+				mt: 2, 
+				fontWeight: 'bold', 
+				fontSize: 20,
+				border: '2px solid',
+				borderColor: 'primary.main',
+				borderRadius: '8px',
+				py: 1,
+				px: 7,
+				width: '100%',
+				color: 'neutral.10'
+			}}
 				type="submit"
 			>
-				loginTextfields.login
+				Login
 			</LoadingButton>
+			<Button variant="text" color="primary" href="/sign-up"  
+				sx={{
+					mt: '8px',
+					fontWeight: 'bold', 
+					fontSize: 20,
+					border: '2px solid',
+					borderColor: 'primary.main',
+					borderRadius: '8px',
+					py: 1,
+					px: 7,
+					width: '100%'
+					 }}>
+				Sign Up
+			</Button>
 		</Stack>
 	);
 };

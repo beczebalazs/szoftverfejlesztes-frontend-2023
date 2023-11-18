@@ -10,25 +10,20 @@ import LoginForm from './login-form/LoginForm';
 
 const Login: FC = () => {
 	return (
-		<AuthLayout>
-			<Avatar sx={{ backgroundColor: 'primary.main', marginBottom: 2 }}>
-				<LockOutlinedIcon sx={{ color: 'white' }} />
-			</Avatar>
+		<AuthLayout >
 			<Typography
 				variant="h3"
 				sx={{
-					color: 'primary.main',
+					color: 'neutral.70',
 					fontWeight: 'bold',
-					fontSize: 40,
-				}}
+					fontSize: 48,
+					
+				}}	
 			>
-				loginLayout.title
+				Login
 			</Typography>
 			<LoginForm />
 
-			<Button variant="text" color="primary" href="/sign-up" sx={{ mt: 5 }}>
-				loginLayout.signUp
-			</Button>
 		</AuthLayout>
 	);
 };
