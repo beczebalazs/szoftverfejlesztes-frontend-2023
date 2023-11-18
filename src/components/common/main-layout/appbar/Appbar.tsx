@@ -62,7 +62,7 @@ const AppBar: FC<Props> = props => {
 								onClick={() => dispatch(setSidebarIsOpen(false))}
 								edge="start"
 							>
-								<ArrowCircleLeftOutlinedIcon sx={{ color: 'neutral.light' }} />
+								<ArrowCircleLeftOutlinedIcon sx={{ color: 'neutral.10' }} />
 							</IconButton>
 						) : (
 							<IconButton
@@ -73,7 +73,7 @@ const AppBar: FC<Props> = props => {
 							>
 								<MenuIcon
 									sx={{
-										color: 'neutral.light',
+										color: 'neutral.10',
 									}}
 								/>
 							</IconButton>
@@ -91,7 +91,7 @@ const AppBar: FC<Props> = props => {
 							<TextField
 								{...params}
 								placeholder="Search"
-								sx={{ bgcolor: 'neutral.light' }}
+								sx={{ bgcolor: 'neutral.10', borderRadius: '100px' }}
 								InputProps={{
 									...params.InputProps,
 									startAdornment: <SearchIcon sx={{ color: 'gray', marginRight: 1 }} />,
@@ -102,7 +102,7 @@ const AppBar: FC<Props> = props => {
 					<Stack direction="row" alignItems="center">
 						<Typography
 							sx={{
-								color: 'neutral.light',
+								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
@@ -114,7 +114,7 @@ const AppBar: FC<Props> = props => {
 						</Typography>
 						<Typography
 							sx={{
-								color: 'neutral.light',
+								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
@@ -126,7 +126,7 @@ const AppBar: FC<Props> = props => {
 						</Typography>
 						<Typography
 							sx={{
-								color: 'neutral.light',
+								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
