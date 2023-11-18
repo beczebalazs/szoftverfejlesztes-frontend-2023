@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {
 	Autocomplete,
 	Box,
+	Button,
 	IconButton,
 	Stack,
 	TextField,
@@ -100,42 +101,52 @@ const AppBar: FC<Props> = props => {
 						)}
 					/>
 					<Stack direction="row" alignItems="center">
-						<Typography
+						<Button
+							variant='text'
+
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
+								px: 1
+
 							}}
+							onClick={() => navigate('/user-details')}
+
 						>
 							<PermIdentityIcon />
 							Account
-						</Typography>
-						<Typography
+						</Button>
+						<Button
+							variant='text'
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
+								px: 1 
 							}}
 						>
 							<FavoriteBorderIcon />
 							Favorites
-						</Typography>
-						<Typography
+						</Button>
+						<Button
+							variant='text'
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
+								px: 1
 							}}
 						>
 							<ShoppingCartOutlinedIcon />
 							Cart
-						</Typography>
+						</Button>
 					</Stack>
 				</Stack>
 			</Toolbar>
