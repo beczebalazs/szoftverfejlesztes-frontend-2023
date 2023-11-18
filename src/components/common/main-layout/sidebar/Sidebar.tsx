@@ -37,6 +37,7 @@ const Sidebar: FC = () => {
 					backgroundColor: 'white',
 					boxShadow: '5px 0 10px rgba(0, 0, 0, 0.2)',
 				},
+				display: isOpen ? 'block' : 'none',
 			}}
 			variant={isDownXl ? 'temporary' : 'persistent'}
 			anchor="left"

@@ -21,7 +21,7 @@ const Main: FC<Props> = props => {
 			isUpXl={isUpXl}
 			isUpMd={isUpMd}
 			isTouchScreen={isTouchScreen}
-			sx={{ p: { xxs: 1.5, xs: 2, md: 3, lg: 5 }, flexGrow: 1 }}
+			sx={{ p: { xxs: 1.5, xs: 2, md: 3, lg: 5 }, flexGrow: 1, ml: isOpen ? 'auto' : '0px' }}
 		>
 			{props.children}
 		</StyledMain>
