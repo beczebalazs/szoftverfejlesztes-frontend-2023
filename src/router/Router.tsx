@@ -10,6 +10,8 @@ import SpeakersPage from '../pages/speakers';
 import WatchesPage from '../pages/watches';
 import ComputersPage from '../pages/computers';
 import GamingPage from '../pages/gaming';
+import LoginPage from '../pages/login';
+import SignUpPage from '../pages/sign-up';
 
 const HomePage = lazy(() => import('../pages/index'));
 
@@ -94,6 +96,23 @@ const router = createBrowserRouter([
 			</Suspense>
 		),
 	},
+	{
+		path: '/login',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<LoginPage />
+			</Suspense>
+		),
+	},
+	{
+		path: '/sign-up',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<SignUpPage />
+			</Suspense>
+		),
+	},
 ]);
 
 export { router };
+
