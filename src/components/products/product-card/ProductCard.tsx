@@ -55,7 +55,7 @@ const ProductCard: FC<Props> = props => {
 				>
 					{props.title}
 				</Typography>
-				<Rating value={props.rating} name="read-only" />
+				<Rating value={props.rating} name="read-only" readOnly/>
 				<Typography
 					variant="body2"
 
