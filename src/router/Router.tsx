@@ -12,6 +12,7 @@ import ComputersPage from '../pages/computers';
 import GamingPage from '../pages/gaming';
 import LoginPage from '../pages/login';
 import SignUpPage from '../pages/sign-up';
+import UserDetails from '../pages/user-details';
 import CheckoutPage from '../pages/checkout';
 import MyCartPage from '../pages/my-cart';
 import ProductDetailPage from '../pages/produt-detail';
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
 		),
 	},
 	{
+		path: '/user-details',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<UserDetails />
 		path: '/checkout',
 		element: (
 			<Suspense fallback={<PageLoading />}>

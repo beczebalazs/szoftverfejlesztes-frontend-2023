@@ -10,7 +10,6 @@ import {
 	TextField,
 	Theme,
 	Toolbar,
-	Typography,
 	useMediaQuery,
 } from '@mui/material';
 
@@ -101,30 +100,6 @@ const AppBar: FC<Props> = props => {
 						)}
 					/>
 					<Stack direction="row" alignItems="center">
-						<Typography
-							sx={{
-								color: 'neutral.10',
-								display: 'flex',
-								alignItems: 'center',
-								mr: 2,
-								gap: 0.5,
-							}}
-						>
-							<PermIdentityIcon />
-							Account
-						</Typography>
-						<Typography
-							sx={{
-								color: 'neutral.10',
-								display: 'flex',
-								alignItems: 'center',
-								mr: 2,
-								gap: 0.5,
-							}}
-						>
-							<FavoriteBorderIcon />
-							Favorites
-						</Typography>
 						<Button
 							variant="text"
 							sx={{
@@ -133,7 +108,36 @@ const AppBar: FC<Props> = props => {
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
-								py: 1,
+								px: 1,
+							}}
+							onClick={() => navigate('/user-details')}
+						>
+							<PermIdentityIcon />
+							Account
+						</Button>
+						<Button
+							variant="text"
+							sx={{
+								color: 'neutral.10',
+								display: 'flex',
+								alignItems: 'center',
+								mr: 2,
+								gap: 0.5,
+								px: 1,
+							}}
+						>
+							<FavoriteBorderIcon />
+							Favorites
+						</Button>
+						<Button
+							variant="text"
+							sx={{
+								color: 'neutral.10',
+								display: 'flex',
+								alignItems: 'center',
+								mr: 2,
+								gap: 0.5,
+								px: 1,
 							}}
 							onClick={() => navigate('/my-cart')}
 						>
