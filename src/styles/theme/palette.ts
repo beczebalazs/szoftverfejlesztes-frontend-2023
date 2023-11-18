@@ -3,29 +3,36 @@ import { PaletteOptions } from '@mui/material';
 declare module '@mui/material/styles' {
 	interface PaletteOptions {
 		neutral: {
-			light: string;
-			main: string;
-			dark: string;
+			10: string;
+			20: string;
+			30: string;
+			40: string;
+			50: string;
+			60: string;
+			70: string;
 		};
+
 	}
 }
+
 export const palette: PaletteOptions = {
-	mode: 'light',
 	primary: {
 		main: '#2EC4B6',
-		// light: 
-		// dark: 
-		// contrastText: 
-	},
+		dark: '#065E56',
+		light: '#A0FFF6'
+	},	
 	secondary: {
 		main: '#011627',
-		// light: 
-		// dark: 
-		// contrastText:
+		light: '#1B476B'
+		
 	},
 	neutral: {
-		light: '#FDFFFC',
-		main: '',
-		dark: ''
+		10: '#FDFFFC',
+		20: '#F5F6F8',
+		30: '#DDDFDD',
+		40: '#BDBFBD',
+		50: '#9D9F9E', 
+		60: '#7E807F',
+		70: '#454545'
 	}
 };
