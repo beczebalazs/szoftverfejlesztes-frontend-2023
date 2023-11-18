@@ -10,7 +10,6 @@ import {
 	TextField,
 	Theme,
 	Toolbar,
-	Typography,
 	useMediaQuery,
 } from '@mui/material';
 
@@ -79,7 +78,7 @@ const AppBar: FC<Props> = props => {
 								/>
 							</IconButton>
 						)}
-						<Box onClick={() => navigate('/')} sx={{cursor: 'pointer'}}>
+						<Box onClick={() => navigate('/')} sx={{ cursor: 'pointer' }}>
 							<img src={'/images/logo.svg'} alt="Logo" />
 						</Box>
 					</Stack>
@@ -102,46 +101,43 @@ const AppBar: FC<Props> = props => {
 					/>
 					<Stack direction="row" alignItems="center">
 						<Button
-							variant='text'
-
+							variant="text"
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
-								px: 1
-
+								px: 1,
 							}}
 							onClick={() => navigate('/user-details')}
-
 						>
 							<PermIdentityIcon />
 							Account
 						</Button>
 						<Button
-							variant='text'
+							variant="text"
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
-								px: 1 
+								px: 1,
 							}}
 						>
 							<FavoriteBorderIcon />
 							Favorites
 						</Button>
 						<Button
-							variant='text'
+							variant="text"
 							sx={{
 								color: 'neutral.10',
 								display: 'flex',
 								alignItems: 'center',
 								mr: 2,
 								gap: 0.5,
-								px: 1
+								px: 1,
 							}}
 						>
 							<ShoppingCartOutlinedIcon />
