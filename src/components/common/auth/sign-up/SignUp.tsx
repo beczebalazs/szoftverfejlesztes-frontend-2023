@@ -1,8 +1,6 @@
 import { FC } from 'react';
 
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Button, Typography } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+import { Typography } from '@mui/material';
 import AuthLayout from '../auth-layout/AuthLayout';
 import SignUpForm from './sign-up-form/SingUpForm';
 

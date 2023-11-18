@@ -122,6 +122,10 @@ const router = createBrowserRouter([
 		element: (
 			<Suspense fallback={<PageLoading />}>
 				<UserDetails />
+			</Suspense>
+		),
+	},
+	{
 		path: '/checkout',
 		element: (
 			<Suspense fallback={<PageLoading />}>
@@ -134,6 +138,10 @@ const router = createBrowserRouter([
 		element: (
 			<Suspense fallback={<PageLoading />}>
 				<MyCartPage />
+			</Suspense>
+		),
+	},
+	{
 		path: '/product-detail',
 		element: (
 			<Suspense fallback={<PageLoading />}>
