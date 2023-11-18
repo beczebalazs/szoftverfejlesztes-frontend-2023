@@ -19,28 +19,30 @@ const ProductCard: FC<Props> = props => {
 			elevation={0}
 			sx={{
 				position: 'relative',
-				borderRadius: 2,
+				borderRadius: '8px',
 				border: 1,
-				borderColor: 'grey.300',
+				borderColor: 'neutral.30',
 				px: 3,
 				py: 1,
-				width: 200,
-				height: 350,
+				width: 302,
+				height: 'auto',
 				cursor: 'pointer',
 			}}
 		>
-			<Stack alignItems="center" sx={{ height: 1 / 1 }}>
-				<FavoriteBorderOutlinedIcon />
+			<Stack alignItems="left" sx={{ height: 1 / 1, pb: 2 }}>
+				<Box sx = {{ display: 'flex', justifyContent: 'flex-end', p:1 }}>
+					<FavoriteBorderOutlinedIcon />
+				</Box>
 				<Box
 					component="img"
 					src={PhoneImage}
 					alt="product image"
-					sx={{ width: 1 / 1, objectFit: 'contain', height: 200 }}
+					sx={{ width: '268px', objectFit: 'contain', height: 200 }}
 				/>
 
 				<Typography
 					variant="body2"
-					align="center"
+					align="left"
 					sx={{
 						mt: 1,
 						color: '#616161',
@@ -48,23 +50,26 @@ const ProductCard: FC<Props> = props => {
 						display: '-webkit-box',
 						WebkitBoxOrient: 'vertical',
 						WebkitLineClamp: '2',
+						fontSize: 20,
+						textAlign: 'left'
 					}}
 				>
 					{props.title}
 				</Typography>
+				<Rating value={props.rating} name="read-only" />
 				<Typography
 					variant="body2"
-					align="center"
-					sx={{ mt: 'auto', color: '#9B9B9B', fontSize: 16 }}
+
+					sx={{ mt: 'auto', color: 'neutral.70', fontSize: 16, fontWeight: 'bold', textAlign:'left', marginBottom: '12px'}}
 				>
 					{props.price} $
 				</Typography>
-				<Rating value={props.rating} name="read-only" />
+				
 				<Stack direction={'row'} alignItems={'center'} spacing={2}>
 					<Button
 						color="primary"
 						variant="contained"
-						sx={{ px: 1, color: 'white', borderRadius: '8px' }}
+						sx={{width: '100%', color: 'neutral.10', borderRadius: '8px', marginRight: '15px'}}
 						startIcon={<ShoppingCartOutlinedIcon />}
 					>
 						Add to cart
