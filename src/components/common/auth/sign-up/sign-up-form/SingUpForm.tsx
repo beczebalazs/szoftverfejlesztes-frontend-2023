@@ -9,9 +9,9 @@ import FirstNameField from './first-name-field/FirstNameField';
 import LastNameField from './last-name-field/LastNameField';
 import PasswordField from './password-field/PasswordField';
 import UsernameField from './username-field/UsernameField';
-// import usePostSignUpMutation from '~hooks/auth/usePostSignUpMutation';
 import useSignUpForm from '../../../../../hooks/auth/useSignUpForm';
-// import { SignUpInformation } from '~types/SignUpInformation';
+import usePostSignUpMutation from '../../../../../hooks/auth/usePostSingUpMutation';
+import { SignUpInformation } from '../../../../../types/SignUpFormInformation';
 
 type Input = 'email' | 'password' | 'passwordConfirmation' | 'username' | 'firstName' | 'lastName';
 
@@ -31,28 +31,28 @@ const SignUpForm: FC<Props> = props => {
 	const [inputs] = useState<Input[]>(props.input);
 
 	const form = useSignUpForm(props.input);
-	// const { handleSubmit } = form;
+	const { handleSubmit } = form;
 
-	// const postSignUpMutation = usePostSignUpMutation();
+	const postSignUpMutation = usePostSignUpMutation();
 
-	// const onSubmit = (data: SignUpInformation) => {
-	// 	postSignUpMutation.mutate({
-	// 		payload: {
-	// 			email: data.email!,
-	// 			password: data.password!,
-	// 			username: data.username!,
-	// 			firstName: data.firstName!,
-	// 			lastName: data.lastName!,
-	// 		},
-	// 	});
-	// };
+	const onSubmit = (data: SignUpInformation) => {
+		postSignUpMutation.mutate({
+			payload: {
+				email: data.email!,
+				password: data.password!,
+				username: data.username!,
+				firstName: data.firstName!,
+				lastName: data.lastName!,
+			},
+		});
+	};
 
 	return (
 		<SignUpFormCtx.Provider value={{ inputs: inputs }}>
 			<FormProvider {...form}>
 				<Stack
 					component={'form'}
-					// onSubmit={handleSubmit(onSubmit)}
+					onSubmit={handleSubmit(onSubmit)}
 					alignItems="center"
 					justifyContent="center"
 					spacing={1}
