@@ -4,11 +4,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import usePhonesQuery from '../../../hooks/phones/usePhonesQuery';
+import useProductsQuery from '../../../hooks/products/useProductsQuery';
 import ProductCard from '../../products/product-card/ProductCard';
 
 const SimilarProducts = () => {
-	const phones = usePhonesQuery();
+	const phones = useProductsQuery('phones');
 
 	const settings = {
 		dots: true,
