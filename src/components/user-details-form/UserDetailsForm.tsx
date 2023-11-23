@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Container, TextField, Typography, Box } from '@mui/material';
+import useGetCurrentUserQuery from '../../hooks/user/useGetCurrentUserQuery';
 
 const UserDetailsForm = () => {
+	const user = useGetCurrentUserQuery();
+	console.log(11, user.data)
+	
 	const [formData, setFormData] = useState({
 		firstName: 'John',
 		lastName: 'Doe',
@@ -20,6 +24,7 @@ const UserDetailsForm = () => {
 		event.preventDefault();
 		console.log('Form data submitted:', formData);
 	};
+
 
 	return (
 		<Container component="main" maxWidth="sm">
