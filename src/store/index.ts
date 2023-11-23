@@ -14,6 +14,7 @@ import { ThunkDispatch } from "redux-thunk";
 import { Action, combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import navigationSlice from './navigation/slice';
+import authSlice from "./auth/slice";
 
 export const persistConfig = {
     key: "root",
@@ -23,6 +24,7 @@ export const persistConfig = {
 
 const rootReducer = combineReducers({
     [navigationSlice.name]: navigationSlice.reducer,
+    [authSlice.name]: authSlice.reducer,
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);
