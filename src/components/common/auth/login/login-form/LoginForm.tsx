@@ -11,26 +11,27 @@ import { Controller } from 'react-hook-form';
 import Button from '@mui/material/Button';
 
 import useLoginForm from '../../../../../hooks/auth/useLoginForm';
-// import usePostLoginMutation from '~hooks/auth/usePostLoginMutation';
+import usePostLoginMutation from '../../../../../hooks/auth/usePostLoginMutation';
+import { LoginPayload } from '../../../../../types/Auth';
 
 const LoginForm: FC = () => {
 	const [showPassword, setShowPassword] = useState(false);
 
-	// const postLoginMutation = usePostLoginMutation();
+	const postLoginMutation = usePostLoginMutation();
 
-	const form = useLoginForm();
-	const { control } = form;
+    const form = useLoginForm();
+    const { handleSubmit, control } = form;
 
-	// const onSubmit = (data: LoginPayload) => {
-	// 	postLoginMutation.mutate({
-	// 		payload: data,
-	// 	});
-	// };
+    const onSubmit = (data: LoginPayload) => {
+        postLoginMutation.mutate({
+            payload: data,
+        });
+    };
 
-	return (
-		<Stack
-			component={'form'}
-			// onSubmit={handleSubmit(onSubmit)}
+    return (
+        <Stack
+            component={'form'}
+            onSubmit={handleSubmit(onSubmit)}
 			alignItems="center"
 			justifyContent="center"
 			sx={{px:'82px'}}
