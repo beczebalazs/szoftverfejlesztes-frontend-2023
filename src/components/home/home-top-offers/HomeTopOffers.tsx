@@ -1,9 +1,9 @@
 import { Unstable_Grid2 as Grid, Typography } from '@mui/material';
 import ProductCard from '../../../components/products/product-card/ProductCard';
-import usePhonesQuery from '../../../hooks/phones/usePhonesQuery';
+import useProductsQuery from '../../../hooks/products/useProductsQuery';
 
 const HomeTopOffers = () => {
-	const phones = usePhonesQuery();
+	const phones = useProductsQuery('phones');
 	return (
 		<Grid container spacing={4}>
 			<Grid xs={12}>

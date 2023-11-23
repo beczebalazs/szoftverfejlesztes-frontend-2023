@@ -3,10 +3,10 @@ import MainLayout from '../../components/common/main-layout/MainLayout';
 import { Unstable_Grid2 as Grid, Stack } from '@mui/material';
 import ProductCard from '../../components/products/product-card/ProductCard';
 import ProductsFilter from '../../components/products/products-filter/ProductsFilter';
-import usePhonesQuery from '../../hooks/phones/usePhonesQuery';
+import useProductsQuery from '../../hooks/products/useProductsQuery';
 
 const PhonesPage = () => {
-    const phones = usePhonesQuery();
+    const phones = useProductsQuery('phones');
 	return (
 		<MainLayout>
 			<Grid container spacing={4}>
