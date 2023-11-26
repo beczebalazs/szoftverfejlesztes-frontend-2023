@@ -45,6 +45,7 @@ const AppBar: FC<Props> = props => {
 				boxShadow: 'none',
 				width: '100%',
 				zIndex: 10000,
+				//padding: '12px'
 			}}
 		>
 			<Toolbar disableGutters={isDownMd}>
