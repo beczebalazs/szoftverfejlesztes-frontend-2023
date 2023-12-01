@@ -4,7 +4,7 @@ import React from 'react';
 const DescriptionsTab = () => {
 	return (
 		<Stack>
-			<Typography variant="h4">Lorem Ipsum</Typography>
+			<Typography variant="h4" sx={{mt:3}}>Lorem Ipsum</Typography>
 			<Typography variant="body1">
 				Lorem ipsum dolor sit amet consectetur. Blandit purus at dolor faucibus mi tincidunt vel
 				mauris ullamcorper. Neque pharetra sit fermentum pellentesque. Nulla aliquet varius aenean

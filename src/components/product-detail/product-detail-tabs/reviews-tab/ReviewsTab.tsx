@@ -20,7 +20,7 @@ const ReviewsTab: FC = () => {
 
 				<Button
 					variant="outlined"
-					sx={{ color: 'primary.main' }}
+					sx={{fontWeight: 'bold',  fontSize: 16, border: '2px solid', borderColor: 'primary.main', borderRadius: '8px', height:'46px', mb:4  }}
 					onClick={() => setAddingReview(true)}
 				>
 					Write review

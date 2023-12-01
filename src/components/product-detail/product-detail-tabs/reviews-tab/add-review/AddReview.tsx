@@ -52,12 +52,13 @@ const AddReview: FC<Props> = props => {
 				/>
 				<Button
 					variant="outlined"
-					sx={{ color: 'primary.main', mr: 2 }}
+					sx={{ mt: '8px', fontWeight: 'bold',  fontSize: 16, border: '2px solid', borderColor: 'primary.main', borderRadius: '8px', mr:'8px' }}
 					onClick={() => props.setAddingReview(false)}
+						
 				>
 					Cancel
 				</Button>
-				<Button variant="contained" sx={{ color: 'white' }}>
+				<Button variant="contained" sx={{ mt: '8px', fontWeight: 'bold',  fontSize: 16, border: '2px solid', borderColor: 'primary.main', borderRadius: '8px',color:'white'  }}>
 					Submit
 				</Button>
 			</CardContent>
