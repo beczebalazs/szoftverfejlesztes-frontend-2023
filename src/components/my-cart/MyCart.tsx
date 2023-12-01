@@ -60,14 +60,19 @@ const MyCart = () => {
 
   return (
     <Container maxWidth={false}>
-      <Typography variant="h3" gutterBottom sx={{ mb: '48px' }}>
+      <Typography variant="h4" gutterBottom sx={{ mb: '48px' }}>
         My Cart
       </Typography>
       <Grid container spacing={12}>
         <Grid item xs={12} md={8}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', borderBottom: '1px solid #E0E0E0' }}>
+            <Typography variant="h6" sx={{fontWeight: 'bold'}}>Product</Typography>
+            <Typography variant="h6" sx={{fontWeight: 'bold'}}>Quantity</Typography>
+            <Typography variant="h6" sx={{fontWeight: 'bold'}}>Price</Typography>
+          </div>
           {products.map(product => (
             <React.Fragment key={product.id}>
-               <Card sx={{ display: 'flex', mb: 2, boxShadow: 'none' }}>
+               <Card sx={{ display: 'flex', mb: 2, boxShadow: 'none', mt:4 }}>
                 <CardMedia
                   component="img"
                   sx={{ width: 151 }}
@@ -110,7 +115,7 @@ const MyCart = () => {
                         </IconButton>
                       </div>
 					            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <Typography sx={{ fontSize: '28px' }}>${(product.price * quantity).toFixed(2)}</Typography>
+                      <Typography sx={{ fontSize: '20px', fontWeight: 'bold' }}>${(product.price * quantity).toFixed(2)}</Typography>
                     </div>
                     </div>
                   </CardContent>
@@ -126,7 +131,7 @@ const MyCart = () => {
         <Grid item xs={12} md={4}>
           <Card sx={{width:513, boxShadow: 'none', border: '1px solid #BDBFBD', borderRadius: '8px'}}>
             <CardContent>
-              <Typography variant="h4" sx={{mt:'24px', ml:'24px'}}>Cart summary</Typography>
+              <Typography variant="h6" sx={{mt:'24px', ml:'24px', fontWeight: 'bold'}}>Cart summary</Typography>
 			        <RadioGroup value={shipping} onChange={handleShippingChange}>
                 <FormControlLabel
                   value="free"
@@ -153,14 +158,14 @@ const MyCart = () => {
                   }}
                 />
               </RadioGroup>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', }}>
-  				<Typography sx={{ fontSize: '20px', color:'neutral.40', ml:'24px' }}>Subtotal</Typography>
-  				<Typography sx={{ fontSize: '20px', color:'neutral.40', mr:'24px', textAlig:'right',}}>${subtotal.toFixed(2)}</Typography>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop:'24px' }}>
+  				<Typography sx={{ fontSize: '16px', color:'neutral.40', ml:'24px' }}>Subtotal</Typography>
+  				<Typography sx={{ fontSize: '16px', color:'neutral.40', mr:'24px', textAlig:'right',}}>${subtotal.toFixed(2)}</Typography>
 				
 			</div>
-			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-    			<Typography sx={{ fontSize: '28px', ml:'24px'}}>Total</Typography>
-    			<Typography sx={{ fontSize: '28px', mr:'24px', textAlign: 'right' }}>${total.toFixed(2)}</Typography>
+			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop:'12px' }}>
+    			<Typography sx={{ fontSize: '20px', ml:'24px', fontWeight: 'bold'}}>Total</Typography>
+    			<Typography sx={{ fontSize: '20px', mr:'24px', textAlign: 'right', fontWeight:'bold' }}>${total.toFixed(2)}</Typography>
   			</div>
             </CardContent>
             <CardActions>
