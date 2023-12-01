@@ -35,7 +35,7 @@ const CheckoutForm = () => {
 						<TextField required label="Card number" fullWidth margin="normal" />
 						<TextField required label="Expiry date" fullWidth margin="normal" />
 						<TextField required label="CVC code" fullWidth margin="normal" />
-						<Button type="submit" fullWidth variant="contained" sx={{ mt: 3 }}>
+						<Button type="submit" fullWidth variant="contained"  sx={{mt: '8px', fontWeight: 'bold',fontSize: 20,border: '2px solid',borderColor: 'primary.main',borderRadius: '8px',py: 1,px: 7,width: '100%',color: 'white',mb: '24px',ml:'24px',mr:'24px'}}>
 							Place order
 						</Button>
 					</Box>
