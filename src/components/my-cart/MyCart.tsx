@@ -63,7 +63,7 @@ const MyCart = () => {
       <Typography variant="h3" gutterBottom sx={{ mb: '48px' }}>
         My Cart
       </Typography>
-      <Grid container spacing={48}>
+      <Grid container spacing={12}>
         <Grid item xs={12} md={8}>
           {products.map(product => (
             <React.Fragment key={product.id}>
@@ -84,13 +84,13 @@ const MyCart = () => {
                         <Typography variant="subtitle1" color="text.secondary" component="div" sx={{ fontSize: '16px' }}>
                           {product.description}
                         </Typography>
-						<IconButton sx={{fontSize:'14px', textAlign:'left'}}
+						            <IconButton sx={{fontSize:'14px', textAlign:'left'}}
                         onClick={() => {
                           /* Termék törlése */
                         }}
                       >
                         <DeleteIcon />
-							Remove
+							          Remove
                       </IconButton>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -109,7 +109,7 @@ const MyCart = () => {
                           <AddIcon />
                         </IconButton>
                       </div>
-					  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+					            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                       <Typography sx={{ fontSize: '28px' }}>${(product.price * quantity).toFixed(2)}</Typography>
                     </div>
                     </div>
@@ -124,10 +124,10 @@ const MyCart = () => {
           ))}
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card>
+          <Card sx={{width:513, boxShadow: 'none', border: '1px solid #BDBFBD', borderRadius: '8px'}}>
             <CardContent>
               <Typography variant="h4" sx={{mt:'24px', ml:'24px'}}>Cart summary</Typography>
-			  <RadioGroup value={shipping} onChange={handleShippingChange}>
+			        <RadioGroup value={shipping} onChange={handleShippingChange}>
                 <FormControlLabel
                   value="free"
                   control={<Radio />}
