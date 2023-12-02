@@ -52,7 +52,7 @@ const CheckoutOrderSummary = () => {
 	const total = subtotal - discount;
 
 	return (
-		<Card>
+		<Card sx={{border: '1px solid #BDBFBD', borderRadius: '8px', boxShadow: 'none'}}>
 			<CardContent>
 				<Typography variant="h6" gutterBottom>
 					Order summary
@@ -75,7 +75,10 @@ const CheckoutOrderSummary = () => {
 									sx={{ width: 56, height: 56 }}
 								/>
 							</ListItemAvatar>
-							<ListItemText primary={item.name} secondary={`$${item.price.toFixed(2)}`} />
+							<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+    							<Typography variant="body1" sx={{ fontWeight: 'semibold' }}>{item.name}</Typography>
+    							<Typography variant="body1" sx={{ fontWeight: 'bold' }}>${item.price.toFixed(2)}</Typography>
+  							</Box>
 						</ListItem>
 					))}
 				</List>
@@ -85,9 +88,11 @@ const CheckoutOrderSummary = () => {
 						placeholder="Coupon code"
 						value={coupon}
 						onChange={e => setCoupon(e.target.value)}
-						sx={{ mr: 1 }}
+						sx={{ mr: 1, ".MuiInputBase-root": { borderColor: 'neutral.70',
+						borderRadius:'8px'}}}
+						
 					/>
-					<Button variant="contained" onClick={handleApplyCoupon}>
+					<Button variant="contained" onClick={handleApplyCoupon}  sx={{fontWeight: 'bold',width: '50%', fontSize: 16, borderRadius: '8px',color: 'white'}}>
 						Apply
 					</Button>
 				</Box>
@@ -100,21 +105,27 @@ const CheckoutOrderSummary = () => {
 							<Typography variant="body2" color="error">
 								-${discount.toFixed(2)}
 							</Typography>
-							<Button size="small" onClick={handleRemoveCoupon}>
+							<Button size="small" onClick={handleRemoveCoupon} >
 								[Remove]
 							</Button>
 						</Box>
 					</Box>
 				)}
 				<Divider sx={{ my: 2 }} />
-				<Typography variant="body2">Shipping</Typography>
-				<Typography variant="body2">Free</Typography>
+				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+  					<Typography variant="body2">Shipping</Typography>
+  					<Typography variant="body2" sx={{fontWeight: 'bold'}}>Free</Typography>
+				</div>	
 				<Divider sx={{ my: 2 }} />
-				<Typography variant="body1">Subtotal</Typography>
-				<Typography variant="body1">${subtotal.toFixed(2)}</Typography>
+				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+					<Typography variant="body1">Subtotal</Typography>
+					<Typography variant="body1" sx={{fontWeight: 'bold'}}>${subtotal.toFixed(2)}</Typography>
+				</div>
 				<Divider sx={{ my: 2 }} />
-				<Typography variant="h6">Total</Typography>
-				<Typography variant="h6">${total.toFixed(2)}</Typography>
+				<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+				<Typography variant="h6" sx={{ fontWeight: 'bold'}}>Total</Typography>
+				<Typography variant="h6" sx={{fontWeight: 'bold'}}>${total.toFixed(2)}</Typography>
+				</div>
 			</CardContent>
 		</Card>
 	);
