@@ -55,7 +55,7 @@ const PhonesPage = () => {
 						<FooterPagination
 							currentPage={currentPage}
 							handlePageChange={handlePageChange}
-							dataLength={phones.data.length}
+							dataLength={phones.data?.length}
 							itemsPerPage={itemsPerPage}
 						/>
 					</Grid>
