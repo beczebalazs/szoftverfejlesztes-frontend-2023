@@ -9,11 +9,13 @@ import TanstackQueryClientProvider from './TanstackQueryClientProvider';
 const Providers: FC<PropsWithChildren> = props => {
 	return (
 		<ReduxProvider>
-			<MuiThemeProvider>
-				<TanstackQueryClientProvider>
-					<SnackbarProvider maxSnack={5}>{props.children}</SnackbarProvider>
-				</TanstackQueryClientProvider>
-			</MuiThemeProvider>
+			<SnackbarProvider maxSnack={5}>
+				<MuiThemeProvider>
+					<TanstackQueryClientProvider>
+						<SnackbarProvider maxSnack={5}>{props.children}</SnackbarProvider>
+					</TanstackQueryClientProvider>
+				</MuiThemeProvider>
+			</SnackbarProvider>
 		</ReduxProvider>
 	);
 };
