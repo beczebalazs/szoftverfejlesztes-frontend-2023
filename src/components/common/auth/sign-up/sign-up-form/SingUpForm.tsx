@@ -12,6 +12,7 @@ import UsernameField from './username-field/UsernameField';
 import useSignUpForm from '../../../../../hooks/auth/useSignUpForm';
 import usePostSignUpMutation from '../../../../../hooks/auth/usePostSingUpMutation';
 import { SignUpInformation } from '../../../../../types/SignUpFormInformation';
+import { useNavigate } from 'react-router-dom';
 
 type Input = 'email' | 'password' | 'passwordConfirmation' | 'username' | 'firstName' | 'lastName';
 
@@ -32,6 +33,8 @@ const SignUpForm: FC<Props> = props => {
 
 	const form = useSignUpForm(props.input);
 	const { handleSubmit } = form;
+
+	const navigate = useNavigate();
 
 	const postSignUpMutation = usePostSignUpMutation();
 
@@ -78,32 +81,40 @@ const SignUpForm: FC<Props> = props => {
 					{props.input.includes('username') && <UsernameField />}
 					{props.input.includes('email') && <EmailField />}
 					{props.input.includes('password') && <PasswordField />}
-					<LoadingButton variant="contained"
+					<LoadingButton
+						variant="contained"
 						// loading={postSignUpMutation.isLoading}
-						sx={{ mx:'60px',
-						mt: 2, 
-						fontWeight: 'bold', 
-						fontSize: 20,
-						border: '2px solid',
-						borderColor: 'primary.main',
-						borderRadius: '8px',
-						py: 1,
-						px: 7,
-						width: '100%',
-						color: 'neutral.10'}}
+						sx={{
+							mx: '60px',
+							mt: 2,
+							fontWeight: 'bold',
+							fontSize: 20,
+							border: '2px solid',
+							borderColor: 'primary.main',
+							borderRadius: '8px',
+							py: 1,
+							px: 7,
+							width: '100%',
+							color: 'neutral.10',
+						}}
 						type="submit"
 					>
 						Create Account
 					</LoadingButton>
-				<Button variant="text"	
-				sx={{ mx:'60px',
-						mt: 2, 
-						fontWeight: 'bold', 
-						fontSize: 16,
-						width: '100%',
-						color: 'primary.main'}}>
-					Already have an account? Sign in 
-				</Button>
+					<Button
+						variant="text"
+						sx={{
+							mx: '60px',
+							mt: 2,
+							fontWeight: 'bold',
+							fontSize: 16,
+							width: '100%',
+							color: 'primary.main',
+						}}
+						onClick={() => navigate('/login')}
+					>
+						Already have an account? Sign in
+					</Button>
 				</Stack>
 			</FormProvider>
 		</SignUpFormCtx.Provider>
