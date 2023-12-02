@@ -18,6 +18,7 @@ import MyCartPage from '../pages/my-cart';
 import ProductDetailPage from '../pages/produt-detail';
 import CamerasPage from '../pages/cameras';
 import FavoritesPage from '../pages/favorites';
+import TvsPage from '../pages/tvs';
 
 const HomePage = lazy(() => import('../pages/index'));
 
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
 		path: '/tvs',
 		element: (
 			<Suspense fallback={<PageLoading />}>
-				<HomePage />
+				<TvsPage />
 			</Suspense>
 		),
 	},
