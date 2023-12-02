@@ -59,7 +59,7 @@ const MyCart = () => {
   const total = subtotal + shippingCost;
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={'lg'}>
       <Typography variant="h4" gutterBottom sx={{ mb: '48px' }}>
         My Cart
       </Typography>
@@ -129,7 +129,7 @@ const MyCart = () => {
           ))}
         </Grid>
         <Grid item xs={12} md={4}>
-          <Card sx={{width:513, boxShadow: 'none', border: '1px solid #BDBFBD', borderRadius: '8px'}}>
+          <Card sx={{width:400, boxShadow: 'none', border: '1px solid #BDBFBD', borderRadius: '8px'}}>
             <CardContent>
               <Typography variant="h6" sx={{mt:'24px', ml:'24px', fontWeight: 'bold'}}>Cart summary</Typography>
 			        <RadioGroup value={shipping} onChange={handleShippingChange}>
