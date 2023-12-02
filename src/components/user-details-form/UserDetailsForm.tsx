@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, TextField, Typography, Box } from '@mui/material';
 import useGetCurrentUserQuery from '../../hooks/user/useGetCurrentUserQuery';
 
 const UserDetailsForm = () => {
 	const user = useGetCurrentUserQuery();
-	console.log(11, user.data)
-	
-	const [formData, setFormData] = useState({
-		firstName: 'John',
-		lastName: 'Doe',
-		displayName: 'johndoe',
-		email: 'john.doe@example.com',
-		oldPassword: '',
-		newPassword: '',
-		repeatNewPassword: '',
-	});
+	console.log(11, user.data);
+
+	const initialState = {
+		firstName: '',
+		lastName: '',
+		email: '',
+		username: '',
+	};
+
+	const [formData, setFormData] = useState(user?.data || initialState);
+
+	useEffect(() => {
+		if (user.data) {
+			setFormData(user.data);
+		}
+	}, [user]);
 
 	const handleChange = (event: any) => {
 		setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -24,7 +29,6 @@ const UserDetailsForm = () => {
 		event.preventDefault();
 		console.log('Form data submitted:', formData);
 	};
-
 
 	return (
 		<Container component="main" maxWidth="sm">
@@ -59,11 +63,11 @@ const UserDetailsForm = () => {
 					margin="normal"
 					required
 					fullWidth
-					id="displayName"
-					label="Display name"
-					name="displayName"
+					id="Username"
+					label="Username"
+					name="Username"
 					autoComplete="nickname"
-					value={formData.displayName}
+					value={formData.username}
 					onChange={handleChange}
 				/>
 				<TextField
@@ -88,7 +92,7 @@ const UserDetailsForm = () => {
 					type="password"
 					id="oldPassword"
 					autoComplete="current-password"
-					value={formData.oldPassword}
+					// value={formData.oldPassword}
 					onChange={handleChange}
 				/>
 				<TextField
@@ -99,7 +103,7 @@ const UserDetailsForm = () => {
 					type="password"
 					id="newPassword"
 					autoComplete="new-password"
-					value={formData.newPassword}
+					// value={formData.newPassword}
 					onChange={handleChange}
 				/>
 				<TextField
@@ -110,7 +114,7 @@ const UserDetailsForm = () => {
 					type="password"
 					id="repeatNewPassword"
 					autoComplete="new-password"
-					value={formData.repeatNewPassword}
+					// value={formData.repeatNewPassword}
 					onChange={handleChange}
 				/>
 				<Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>

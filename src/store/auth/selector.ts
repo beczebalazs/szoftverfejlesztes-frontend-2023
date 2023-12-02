@@ -1,5 +1,5 @@
-import { RootState } from "..";
+import { RootState } from '..';
 
-const authTokenSelector = (state: RootState) => state.auth.authToken;
+const userIdSelector = (state: RootState) => state.auth.userId;
 
-export { authTokenSelector };
+export { userIdSelector };

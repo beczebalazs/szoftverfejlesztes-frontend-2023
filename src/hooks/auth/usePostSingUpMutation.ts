@@ -6,19 +6,22 @@ import { SignUpPayload } from '../../types/Auth';
 import { useSnackbar } from 'notistack';
 
 const usePostSignUpMutation = () => {
-
 	const navigate = useNavigate();
 
-    const { enqueueSnackbar } = useSnackbar();
+	const { enqueueSnackbar } = useSnackbar();
 
 	return useMutation({
 		mutationKey: ['login'],
 		mutationFn: (vars: { payload: SignUpPayload }) => postSignUp(vars.payload),
-		onError: () => enqueueSnackbar('Sign up error! Internal server error.', {
-            variant: 'error',
-        }),
+		onError: () =>
+			enqueueSnackbar('Sign up error! Internal server error.', {
+				variant: 'error',
+			}),
 		onSuccess: () => {
 			navigate('/login');
+			enqueueSnackbar('Sign up success!', {
+				variant: 'success',
+			});
 		},
 	});
 };

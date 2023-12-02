@@ -4,10 +4,10 @@ import { httpClient } from '.';
 import { LoginPayload } from '../types/Auth';
 
 interface LoginRes {
-    access_token: string;
+	user_id: string;
 }
 
 const postLogin = async (payload: LoginPayload) =>
-    (await httpClient.post<LoginRes, AxiosResponse<LoginRes>, LoginPayload>('sign-in', payload)).data;
+	(await httpClient.post<LoginRes, AxiosResponse<LoginRes>, LoginPayload>('sign-in', payload)).data;
 
 export { postLogin };

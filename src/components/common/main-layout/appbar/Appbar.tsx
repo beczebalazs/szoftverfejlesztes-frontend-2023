@@ -12,7 +12,7 @@ import {
 	Toolbar,
 	useMediaQuery,
 } from '@mui/material';
-
+import LoginIcon from '@mui/icons-material/Login';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import AppbarBreadcrumbs, { BreadCrumbsProps } from './appbar-breadcrumbs/AppbarBreadcrumbs';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux/redux';
@@ -23,6 +23,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
+import { userIdSelector } from '../../../../store/auth/selector';
 
 interface Props {
 	breadcrumbs?: BreadCrumbsProps[];
@@ -32,6 +33,7 @@ const AppBar: FC<Props> = props => {
 	const dispatch = useAppDispatch();
 
 	const isOpen = useAppSelector(state => state.navigation.sidebar.isOpen);
+	const isLoggedIn = useAppSelector(userIdSelector);
 
 	const isDownMd = useMediaQuery<Theme>(theme => theme.breakpoints.down('md'));
 
@@ -101,21 +103,39 @@ const AppBar: FC<Props> = props => {
 						)}
 					/>
 					<Stack direction="row" alignItems="center">
-						<Button
-							variant="text"
-							sx={{
-								color: 'neutral.10',
-								display: 'flex',
-								alignItems: 'center',
-								mr: 2,
-								gap: 0.5,
-								px: 1,
-							}}
-							onClick={() => navigate('/user-details')}
-						>
-							<PermIdentityIcon />
-							Account
-						</Button>
+						{isLoggedIn ? (
+							<Button
+								variant="text"
+								sx={{
+									color: 'neutral.10',
+									display: 'flex',
+									alignItems: 'center',
+									mr: 2,
+									gap: 0.5,
+									px: 1,
+								}}
+								onClick={() => navigate('/user-details')}
+							>
+								<PermIdentityIcon />
+								Account
+							</Button>
+						) : (
+							<Button
+								variant="text"
+								sx={{
+									color: 'neutral.10',
+									display: 'flex',
+									alignItems: 'center',
+									mr: 2,
+									gap: 0.5,
+									px: 1,
+								}}
+								onClick={() => navigate('/login')}
+							>
+								<LoginIcon />
+								Login
+							</Button>
+						)}
 						<Button
 							variant="text"
 							sx={{

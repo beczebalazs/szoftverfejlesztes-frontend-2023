@@ -4,9 +4,15 @@ import List from '@mui/material/List';
 
 import { sidebarItems } from './sidebar-items/sidebarItems';
 import SidebarListItem from './sidebar-list-item/SidebarListItem';
+import { useAppDispatch } from '../../../../../hooks/redux/redux';
+import { setUserId } from '../../../../../store/auth/slice';
 
 const SidebarList = () => {
+	const dispatch = useAppDispatch();
 
+	const handleLogOut = () => {
+		dispatch(setUserId(undefined));
+	};
 	return (
 		<List
 			sx={{
@@ -17,12 +23,7 @@ const SidebarList = () => {
 			}}
 		>
 			{sidebarItems.map((item: any) => (
-				<SidebarListItem
-					key={item.title}
-					title={item.title}
-					href={item.href}
-					icon={item.icon}
-				/>
+				<SidebarListItem key={item.title} title={item.title} href={item.href} icon={item.icon} />
 			))}
 			<ListItemButton
 				sx={{
@@ -38,6 +39,7 @@ const SidebarList = () => {
 						},
 					},
 				}}
+				onClick={() => handleLogOut()}
 			>
 				<ListItemIcon>
 					<LogoutOutlinedIcon sx={{ fontSize: 20, marginLeft: 2 }} />
@@ -49,4 +51,3 @@ const SidebarList = () => {
 };
 
 export default SidebarList;
-
