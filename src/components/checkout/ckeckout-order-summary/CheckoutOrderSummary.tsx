@@ -85,7 +85,7 @@ const CheckoutOrderSummary = () => {
 							<ListItemAvatar>
 								<Avatar
 									variant="square"
-									src={item.data.image}
+									src={item.data.images?.[0]}
 									alt={item.data.title}
 									sx={{ width: 56, height: 56 }}
 								/>

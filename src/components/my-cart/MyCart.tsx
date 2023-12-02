@@ -86,7 +86,7 @@ const MyCart = () => {
 								<CardMedia
 									component="img"
 									sx={{ width: 151 }}
-									image={cartItem.data.image}
+									image={cartItem.data.images?.[0]}
 									alt={cartItem.data.title}
 								/>
 								<Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>

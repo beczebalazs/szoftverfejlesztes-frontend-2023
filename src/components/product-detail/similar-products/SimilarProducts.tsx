@@ -29,7 +29,7 @@ const SimilarProducts = () => {
 							id={data.id}
 							title={data.title}
 							price={data.price}
-							image={data.image}
+							image={data.images?.[0]}
 							rating={data.rating}
 						/>
 					</div>
@@ -40,7 +40,7 @@ const SimilarProducts = () => {
 							id={data.id}
 							title={data.title}
 							price={data.price}
-							image={data.image}
+							image={data.images?.[0]}
 							rating={data.rating}
 						/>
 					</div>
@@ -51,7 +51,7 @@ const SimilarProducts = () => {
 							id={data.id}
 							title={data.title}
 							price={data.price}
-							image={data.image}
+							image={data.images?.[0]}
 							rating={data.rating}
 						/>
 					</div>
@@ -62,7 +62,7 @@ const SimilarProducts = () => {
 							id={data.id}
 							title={data.title}
 							price={data.price}
-							image={data.image}
+							image={data.images?.[0]}
 							rating={data.rating}
 						/>
 					</div>

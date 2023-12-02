@@ -17,7 +17,7 @@ const HomeTopOffers = () => {
 							id={data.id}
 							title={data.title}
 							price={data.price}
-							image={data.image}
+							image={data.images?.[0]}
 							rating={data.rating}
 						/>
 					</Grid>
