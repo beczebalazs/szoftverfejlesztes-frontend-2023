@@ -17,6 +17,7 @@ import CheckoutPage from '../pages/checkout';
 import MyCartPage from '../pages/my-cart';
 import ProductDetailPage from '../pages/produt-detail';
 import CamerasPage from '../pages/cameras';
+import FavoritesPage from '../pages/favorites';
 
 const HomePage = lazy(() => import('../pages/index'));
 
@@ -146,6 +147,14 @@ const router = createBrowserRouter([
 		element: (
 			<Suspense fallback={<PageLoading />}>
 				<ProductDetailPage />
+			</Suspense>
+		),
+	},
+	{
+		path: '/favorites',
+		element: (
+			<Suspense fallback={<PageLoading />}>
+				<FavoritesPage />
 			</Suspense>
 		),
 	},

@@ -126,6 +126,7 @@ const AppBar: FC<Props> = props => {
 								gap: 0.5,
 								px: 1,
 							}}
+							onClick={() => navigate('/favorites')}
 						>
 							<FavoriteBorderIcon />
 							Favorites

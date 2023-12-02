@@ -45,6 +45,28 @@ const SimilarProducts = () => {
 						/>
 					</div>
 				))}
+				{phones.data?.map((data: any) => (
+					<div key={data.id}>
+						<ProductCard
+							id={data.id}
+							title={data.title}
+							price={data.price}
+							image={data.image}
+							rating={data.rating}
+						/>
+					</div>
+				))}
+				{phones.data?.map((data: any) => (
+					<div key={data.id}>
+						<ProductCard
+							id={data.id}
+							title={data.title}
+							price={data.price}
+							image={data.image}
+							rating={data.rating}
+						/>
+					</div>
+				))}
 			</Slider>
 		</Stack>
 	);
