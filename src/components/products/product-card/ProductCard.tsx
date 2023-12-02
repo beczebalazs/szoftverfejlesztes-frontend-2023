@@ -7,6 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../../store/favorites/favorites.selector';
 import { addFavorite, removeFavorite } from '../../../store/favorites/favorites.slice';
+import { addItem } from '../../../store/my-cart/slice';
 
 interface Props {
 	id: string;
@@ -22,6 +23,11 @@ const ProductCard: FC<Props> = props => {
 	const favorite = useSelector(selectFavorites);
 	
 	const isFavorite = favorite.some(fav => fav.id === props.id);
+
+
+	const handleAddToCart = (product: any) => {
+	  dispatch(addItem(product));
+	};
 	
 	function handleFavoriteClick() {
 		if (isFavorite) {
@@ -97,6 +103,7 @@ const ProductCard: FC<Props> = props => {
 						variant="contained"
 						sx={{ width: '100%', color: 'neutral.10', borderRadius: '8px', marginRight: '15px' }}
 						startIcon={<ShoppingCartOutlinedIcon />}
+						onClick={() => handleAddToCart(props)}
 					>
 						Add to cart
 					</Button>

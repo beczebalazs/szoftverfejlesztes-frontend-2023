@@ -6,7 +6,6 @@ import {
 	CardContent,
 	List,
 	ListItem,
-	ListItemText,
 	ListItemAvatar,
 	Avatar,
 	IconButton,
@@ -15,6 +14,9 @@ import {
 	Divider,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { selectCart } from '../../../store/my-cart/selector';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem } from '../../../store/my-cart/slice';
 
 const CheckoutOrderSummary = () => {
 	const [coupon, setCoupon] = useState('');
@@ -31,24 +33,18 @@ const CheckoutOrderSummary = () => {
 		setDiscount(0);
 	};
 
-	const orderItems = [
-		{
-			id: 1,
-			name: 'Lorem Ipsum',
-			price: 80.0,
-			imageUrl:
-				'https://s13emagst.akamaized.net/products/40685/40684413/images/res_16a3a662e1b74dd715c857686c585cd7.jpg',
-		},
-		{
-			id: 2,
-			name: 'Lorem Ipsum',
-			price: 80.0,
-			imageUrl:
-				'https://s13emagst.akamaized.net/products/40685/40684413/images/res_16a3a662e1b74dd715c857686c585cd7.jpg',
-		},
-	];
+	const dispatch = useDispatch();
 
-	const subtotal = orderItems.reduce((total, item) => total + item.price, 0);
+	const handleDeleteItem = (product: any) => {
+		dispatch(deleteItem(product));
+	  };
+
+	const cartItems = useSelector(selectCart);
+
+	const subtotal = cartItems.reduce(
+		(total, product) => total + product.data.price * product.quantity,
+		0,
+	);
 	const total = subtotal - discount;
 
 	return (
@@ -58,11 +54,11 @@ const CheckoutOrderSummary = () => {
 					Order summary
 				</Typography>
 				<List>
-					{orderItems.map(item => (
+					{cartItems.map(item => (
 						<ListItem
-							key={item.id}
+							key={item.data.id}
 							secondaryAction={
-								<IconButton edge="end" aria-label="delete">
+								<IconButton edge="end" aria-label="delete" onClick={() => handleDeleteItem(item.data.id)}>
 									<DeleteIcon />
 								</IconButton>
 							}
@@ -70,14 +66,14 @@ const CheckoutOrderSummary = () => {
 							<ListItemAvatar>
 								<Avatar
 									variant="square"
-									src={item.imageUrl}
-									alt={item.name}
+									src={item.data.image}
+									alt={item.data.title}
 									sx={{ width: 56, height: 56 }}
 								/>
 							</ListItemAvatar>
 							<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-    							<Typography variant="body1" sx={{ fontWeight: 'semibold' }}>{item.name}</Typography>
-    							<Typography variant="body1" sx={{ fontWeight: 'bold' }}>${item.price.toFixed(2)}</Typography>
+    							<Typography variant="body1" sx={{ fontWeight: 'semibold' }}>{item.data.title}</Typography>
+    							<Typography variant="body1" sx={{ fontWeight: 'bold' }}>${item.data.price * item.quantity}</Typography>
   							</Box>
 						</ListItem>
 					))}
