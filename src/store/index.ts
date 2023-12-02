@@ -16,6 +16,7 @@ import { Action, combineReducers, configureStore } from "@reduxjs/toolkit";
 import navigationSlice from './navigation/slice';
 import authSlice from "./auth/slice";
 import favoriteSlice from "./favorites/favorites.slice";
+import cartSlice from "./my-cart/slice";
 
 export const persistConfig = {
     key: "root",
@@ -27,6 +28,8 @@ const rootReducer = combineReducers({
     [navigationSlice.name]: navigationSlice.reducer,
     [authSlice.name]: authSlice.reducer,
     [favoriteSlice.name]: favoriteSlice.reducer,
+    [cartSlice.name]: cartSlice.reducer,
+
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);
