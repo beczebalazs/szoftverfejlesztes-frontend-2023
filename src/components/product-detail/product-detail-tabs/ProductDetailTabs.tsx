@@ -18,11 +18,11 @@ export default function ProductDetailTabs() {
 	return (
 		<Box sx={{ width: '100%', typography: 'body1' }}>
 			<TabContext value={value}>
-				<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+				<Box sx={{ borderBottom: 1, borderColor: 'divider', backgroundColor: 'secondary.main', borderRadius:'8px' }}>
 					<TabList onChange={handleChange}>
-						<Tab label="Description" value="1" />
-						<Tab label="Additional Information" value="2" />
-						<Tab label="Reviews" value="3" />
+						<Tab label="Description" value="1" sx={{color:'white', marginRight: 4}} />
+						<Tab label="Additional Information" value="2" sx={{color:'white', marginRight: 4}} />
+						<Tab label="Reviews" value="3" sx={{color:'white', marginRight: 4}} />
 					</TabList>
 				</Box>
 				<TabPanel value="1">
