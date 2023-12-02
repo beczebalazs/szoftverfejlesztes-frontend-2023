@@ -15,12 +15,16 @@ const HomeCategories = () => {
 
 	return (
 		<Box sx={{ maxWidth: '100%' }}>
-			<Typography variant="h5" gutterBottom>
+			<Typography variant="h4" gutterBottom
+			sx={{
+				pb:'48px',
+				pt: '48px'
+			}}>
 				Popular Categories
 			</Typography>
 			<Slider {...sliderSettings}>
 				{categories.map(category => (
-					<Box key={category.title} px={2}>
+					<Box key={category.title} sx={{textAlign: 'left'}}>
 						<CategoriesCard {...category} />
 					</Box>
 				))}

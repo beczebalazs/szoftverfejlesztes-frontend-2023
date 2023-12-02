@@ -10,15 +10,15 @@ interface Props {
 const CategoriesCard: FC<Props> = props => {
 	return (
 		<CardActionArea component="a" href={props.href}>
-			<Paper>
+			<Paper >
 				<CardMedia
 					component="img"
 					image={props.image}
 					alt={'image'}
 					sx={{ height: 140, objectFit: 'contain', marginBottom: 1 }}
 				/>
-				<CardContent>
-					<Typography gutterBottom variant="subtitle1" component="div" align="center">
+				<CardContent >
+					<Typography gutterBottom variant="subtitle1" component="div" textAlign="left" fontSize={24}  >
 						{props.title}
 					</Typography>
 				</CardContent>
