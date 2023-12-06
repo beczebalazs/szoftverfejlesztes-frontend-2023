@@ -21,6 +21,10 @@ const PhonesPage = () => {
 		});
 	};
 	const parsePriceRange = (range: string) => {
+		if (range === "600+") {
+			return { min: 600, max: Number.MAX_SAFE_INTEGER };
+		}
+	
 		const [min, max] = range.split('-').map(Number);
 		return { min, max };
 	};
