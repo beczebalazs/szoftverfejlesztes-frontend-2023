@@ -3,6 +3,7 @@ import { FC } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
 	Autocomplete,
+	Badge,
 	Box,
 	Button,
 	IconButton,
@@ -25,6 +26,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { userIdSelector } from '../../../../store/auth/selector';
 import useProductsForSearchQuery from '../../../../hooks/products/useProductsForSearchQuery';
+import { selectCart } from '../../../../store/my-cart/selector';
 
 interface Props {
 	breadcrumbs?: BreadCrumbsProps[];
@@ -35,6 +37,9 @@ const AppBar: FC<Props> = props => {
 
 	const isOpen = useAppSelector(state => state.navigation.sidebar.isOpen);
 	const isLoggedIn = useAppSelector(userIdSelector);
+	const cartItems = useAppSelector(selectCart);
+
+	const quantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
 	const isDownMd = useMediaQuery<Theme>(theme => theme.breakpoints.down('md'));
 
@@ -174,7 +179,9 @@ const AppBar: FC<Props> = props => {
 							}}
 							onClick={() => navigate('/my-cart')}
 						>
-							<ShoppingCartOutlinedIcon />
+							<Badge badgeContent={quantity} color="primary" sx={{mr: 1}}>
+								<ShoppingCartOutlinedIcon />
+							</Badge>
 							Cart
 						</Button>
 					</Stack>
