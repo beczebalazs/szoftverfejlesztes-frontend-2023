@@ -12,7 +12,7 @@ const PhonesPage = () => {
 	const [priceFilter, setPriceFilter] = useState<string[]>([]);
 	const [brandFilter, setBrandFilter] = useState<string[]>([]);
 
-	const itemsPerPage = 1;
+	const itemsPerPage = 6;
 	const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
 		setCurrentPage(value);
 		window.scrollTo({
@@ -33,7 +33,9 @@ const PhonesPage = () => {
 
 	const filteredPhones = phones.data?.filter((phone: any) => {
 		const priceMatch = priceRanges.length === 0 || isInPriceRange(phone.price, priceRanges);
-		const brandMatch = brandFilter.length === 0 || brandFilter.includes(phone.brand);
+		const brandMatch =
+			brandFilter.length === 0 ||
+			brandFilter.map(brand => brand.toLowerCase()).includes(phone.brand.toLowerCase());
 		return priceMatch && brandMatch;
 	});
 
@@ -63,15 +65,15 @@ const PhonesPage = () => {
 				</Grid>
 				<Grid container spacing={4} xs={10}>
 					{paginatedPhones?.length === 0 && (
-						<Stack alignItems={'center'} justifyContent={'center'} width={1 /1}>
+						<Stack alignItems={'center'} justifyContent={'center'} width={1 / 1}>
 							<Typography variant="h5">No product found!</Typography>
 						</Stack>
 					)}
 					{paginatedPhones?.map((data: any) => (
-						<Grid xs={'auto'} key={data.id}>
+						<Grid xs={'auto'} key={data._id}>
 							<ProductCard
-								key={data.id}
-								id={data.id}
+								key={data._id}
+								_id={data._id}
 								title={data.title}
 								price={data.price}
 								image={data.images?.[0]}

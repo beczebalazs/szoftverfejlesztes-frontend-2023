@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
 	Box,
 	Typography,
@@ -20,7 +20,11 @@ import { deleteItem } from '../../../store/my-cart/slice';
 import useCouponesQuery from '../../../hooks/coupons/useCouponsquery';
 import { useSnackbar } from 'notistack';
 
-const CheckoutOrderSummary = () => {
+interface Props {
+	setPrice: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const CheckoutOrderSummary: FC<Props> = props => {
 	const [coupon, setCoupon] = useState('');
 	const [discount, setDiscount] = useState(0);
 
@@ -62,6 +66,11 @@ const CheckoutOrderSummary = () => {
 	);
 	const total = subtotal - discount;
 
+	useEffect(() => {
+		props.setPrice(total);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [total]);
+
 	return (
 		<Card sx={{ border: '1px solid #BDBFBD', borderRadius: '8px', boxShadow: 'none' }}>
 			<CardContent>
@@ -71,12 +80,12 @@ const CheckoutOrderSummary = () => {
 				<List>
 					{cartItems.map(item => (
 						<ListItem
-							key={item.data.id}
+							key={item.data._id}
 							secondaryAction={
 								<IconButton
 									edge="end"
 									aria-label="delete"
-									onClick={() => handleDeleteItem(item.data.id)}
+									onClick={() => handleDeleteItem(item.data._id)}
 								>
 									<DeleteIcon />
 								</IconButton>
@@ -85,7 +94,7 @@ const CheckoutOrderSummary = () => {
 							<ListItemAvatar>
 								<Avatar
 									variant="square"
-									src={item.data.images?.[0]}
+									src={item.data.image}
 									alt={item.data.title}
 									sx={{ width: 56, height: 56 }}
 								/>

@@ -8,9 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from '../../../store/favorites/favorites.selector';
 import { addFavorite, removeFavorite } from '../../../store/favorites/favorites.slice';
 import { addItem } from '../../../store/my-cart/slice';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
-	id: string;
+	_id: string;
 	image?: string;
 	title: string;
 	price: number;
@@ -21,15 +22,18 @@ const ProductCard: FC<Props> = props => {
 	const dispatch = useDispatch();
 
 	const favorite = useSelector(selectFavorites);
-	
-	const isFavorite = favorite.some(fav => fav.id === props.id);
 
+	const isFavorite = favorite.some(fav => fav._id === props._id);
 
-	const handleAddToCart = (product: any) => {
-	  dispatch(addItem(product));
+	const navigate = useNavigate();
+
+	const handleAddToCart = (product: any, event: any) => {
+		event.stopPropagation();
+		dispatch(addItem(product));
 	};
-	
-	function handleFavoriteClick() {
+
+	function handleFavoriteClick(event: any) {
+		event.stopPropagation();
 		if (isFavorite) {
 			dispatch(removeFavorite(props));
 		} else {
@@ -49,6 +53,9 @@ const ProductCard: FC<Props> = props => {
 				width: 302,
 				height: 'auto',
 				cursor: 'pointer',
+			}}
+			onClick={() => {
+				navigate(`/product/${props._id}`);
 			}}
 		>
 			<Stack alignItems="left" sx={{ height: 1 / 1, pb: 2 }}>
@@ -103,7 +110,7 @@ const ProductCard: FC<Props> = props => {
 						variant="contained"
 						sx={{ width: '100%', color: 'neutral.10', borderRadius: '8px', marginRight: '15px' }}
 						startIcon={<ShoppingCartOutlinedIcon />}
-						onClick={() => handleAddToCart(props)}
+						onClick={event => handleAddToCart(props, event)}
 					>
 						Add to cart
 					</Button>

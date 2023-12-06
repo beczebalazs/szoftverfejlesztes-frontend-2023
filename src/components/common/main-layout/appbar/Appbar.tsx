@@ -24,6 +24,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { userIdSelector } from '../../../../store/auth/selector';
+import useProductsForSearchQuery from '../../../../hooks/products/useProductsForSearchQuery';
 
 interface Props {
 	breadcrumbs?: BreadCrumbsProps[];
@@ -38,6 +39,14 @@ const AppBar: FC<Props> = props => {
 	const isDownMd = useMediaQuery<Theme>(theme => theme.breakpoints.down('md'));
 
 	const navigate = useNavigate();
+
+	const productsSearchQuery = useProductsForSearchQuery();
+
+	const handleAutocompleteChange = (event: any, value: any) => {
+		if (value) {
+			navigate(`/product/${value._id}`);
+		}
+	};
 
 	return (
 		<MuiAppBar
@@ -88,8 +97,10 @@ const AppBar: FC<Props> = props => {
 					<Autocomplete
 						disablePortal
 						id="combo-box-demo"
-						options={[]}
+						options={productsSearchQuery.data || []}
 						sx={{ width: 300 }}
+						getOptionLabel={option => option.title}
+						onChange={handleAutocompleteChange}
 						renderInput={params => (
 							<TextField
 								{...params}

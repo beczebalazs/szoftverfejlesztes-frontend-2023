@@ -1,52 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, TextField, Typography, Box } from '@mui/material';
+import {
+	Button,
+	Container,
+	TextField,
+	Typography,
+	Box,
+	InputAdornment,
+	IconButton,
+} from '@mui/material';
 import useGetCurrentUserQuery from '../../hooks/user/useGetCurrentUserQuery';
+import usePatchCurrentUserMutation from '../../hooks/user/usePatchCurrentUserMutation';
+import PageLoading from '../common/page-loading/PageLoading';
+import LockIcon from '@mui/icons-material/Lock';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 const UserDetailsForm = () => {
+	const [showPassword, setShowPassword] = useState(false);
+
 	const user = useGetCurrentUserQuery();
-	console.log(11, user.data);
+	const patchCurrentUserMutation = usePatchCurrentUserMutation();
 
-	const initialState = {
-		firstName: '',
-		lastName: '',
-		email: '',
-		username: '',
-	};
-
-	const [formData, setFormData] = useState(user?.data || initialState);
+	const [username, setUsername] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [oldPassword, setOldPassword] = useState('');
 
 	useEffect(() => {
 		if (user.data) {
-			setFormData(user.data);
+			setEmail(user.data?.email);
+			setFirstName(user.data?.firstName);
+			setLastName(user.data?.lastName);
+			setUsername(user.data?.username);
 		}
-	}, [user]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [user.isSuccess]);
 
-	const handleChange = (event: any) => {
-		setFormData({ ...formData, [event.target.name]: event.target.value });
+	const handleSubmit = () => {
+		patchCurrentUserMutation.mutate({
+			id: user?.data?._id!,
+			payload: { username, firstName, lastName, email, password, oldPassword },
+		});
 	};
 
-	const handleSubmit = (event: any) => {
-		event.preventDefault();
-		console.log('Form data submitted:', formData);
-	};
+	if (user.isLoading) return <PageLoading />;
 
 	return (
 		<Container component="main" maxWidth="sm">
 			<Typography variant="h4" component="h1" gutterBottom>
 				My Account
 			</Typography>
-			<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+			<Box sx={{ mt: 1 }}>
 				<TextField
 					margin="normal"
 					required
 					fullWidth
-					id="firstName"
+					id="outlined-controlled"
 					label="First name"
-					name="firstName"
-					autoComplete="given-name"
-					autoFocus
-					value={formData.firstName}
-					onChange={handleChange}
+					value={firstName}
+					onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+						setFirstName(event.target.value);
+					}}
 				/>
 				<TextField
 					margin="normal"
@@ -54,10 +70,8 @@ const UserDetailsForm = () => {
 					fullWidth
 					id="lastName"
 					label="Last name"
-					name="lastName"
-					autoComplete="family-name"
-					value={formData.lastName}
-					onChange={handleChange}
+					value={lastName}
+					onChange={event => setLastName(event.target.value)}
 				/>
 				<TextField
 					margin="normal"
@@ -65,10 +79,8 @@ const UserDetailsForm = () => {
 					fullWidth
 					id="Username"
 					label="Username"
-					name="Username"
-					autoComplete="nickname"
-					value={formData.username}
-					onChange={handleChange}
+					value={username}
+					onChange={event => setUsername(event.target.value)}
 				/>
 				<TextField
 					margin="normal"
@@ -76,10 +88,8 @@ const UserDetailsForm = () => {
 					fullWidth
 					id="email"
 					label="Email address"
-					name="email"
-					autoComplete="email"
-					value={formData.email}
-					onChange={handleChange}
+					value={email}
+					onChange={event => setEmail(event.target.value)}
 				/>
 				<Typography variant="h6" component="h2" gutterBottom>
 					Password change
@@ -87,37 +97,44 @@ const UserDetailsForm = () => {
 				<TextField
 					margin="normal"
 					fullWidth
-					name="oldPassword"
 					label="Old password"
-					type="password"
-					id="oldPassword"
-					autoComplete="current-password"
-					// value={formData.oldPassword}
-					onChange={handleChange}
+					type={showPassword ? 'text' : 'password'}
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position="start">
+								<LockIcon />
+							</InputAdornment>
+						),
+						endAdornment: (
+							<IconButton onClick={() => setShowPassword(currState => !currState)} edge="end">
+								{!showPassword ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
+							</IconButton>
+						),
+					}}
+					value={oldPassword}
+					onChange={event => setOldPassword(event.target.value)}
 				/>
 				<TextField
 					margin="normal"
 					fullWidth
-					name="newPassword"
 					label="New password"
-					type="password"
-					id="newPassword"
-					autoComplete="new-password"
-					// value={formData.newPassword}
-					onChange={handleChange}
+					type={showPassword ? 'text' : 'password'}
+					value={password}
+					onChange={event => setPassword(event.target.value)}
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position="start">
+								<LockIcon />
+							</InputAdornment>
+						),
+						endAdornment: (
+							<IconButton onClick={() => setShowPassword(currState => !currState)} edge="end">
+								{!showPassword ? <VisibilityOutlinedIcon /> : <VisibilityOffOutlinedIcon />}
+							</IconButton>
+						),
+					}}
 				/>
-				<TextField
-					margin="normal"
-					fullWidth
-					name="repeatNewPassword"
-					label="Repeat new password"
-					type="password"
-					id="repeatNewPassword"
-					autoComplete="new-password"
-					// value={formData.repeatNewPassword}
-					onChange={handleChange}
-				/>
-				<Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+				<Button onClick={handleSubmit} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
 					Save Changes
 				</Button>
 			</Box>

@@ -24,42 +24,10 @@ const SimilarProducts = () => {
 			<Typography variant="h4">More Like This</Typography>
 			<Slider {...settings}>
 				{phones.data?.map((data: any) => (
-					<div key={data.id}>
+					<div key={data._id}>
 						<ProductCard
-							id={data.id}
-							title={data.title}
-							price={data.price}
-							image={data.images?.[0]}
-							rating={data.rating}
-						/>
-					</div>
-				))}
-				{phones.data?.map((data: any) => (
-					<div key={data.id}>
-						<ProductCard
-							id={data.id}
-							title={data.title}
-							price={data.price}
-							image={data.images?.[0]}
-							rating={data.rating}
-						/>
-					</div>
-				))}
-				{phones.data?.map((data: any) => (
-					<div key={data.id}>
-						<ProductCard
-							id={data.id}
-							title={data.title}
-							price={data.price}
-							image={data.images?.[0]}
-							rating={data.rating}
-						/>
-					</div>
-				))}
-				{phones.data?.map((data: any) => (
-					<div key={data.id}>
-						<ProductCard
-							id={data.id}
+							key={data._id}
+							_id={data._id}
 							title={data.title}
 							price={data.price}
 							image={data.images?.[0]}

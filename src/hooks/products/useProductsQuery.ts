@@ -4,7 +4,7 @@ import { getProducts } from '../../services/products';
 
 const useProductsQuery = (category: string) => {
 	return useQuery({
-		queryKey: ['phones'],
+		queryKey: ['products'],
 		queryFn: () => getProducts(category),
 	});
 };

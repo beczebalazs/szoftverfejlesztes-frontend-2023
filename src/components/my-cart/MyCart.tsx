@@ -22,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCart } from '../../store/my-cart/selector';
 import { addItem, deleteItem, removeItem } from '../../store/my-cart/slice';
+import { userIdSelector } from '../../store/auth/selector';
 
 const MyCart = () => {
 	const [shipping, setShipping] = useState('free');
@@ -34,17 +35,18 @@ const MyCart = () => {
 	};
 
 	const cartItems = useSelector(selectCart);
+	const isLoggedIn = useSelector(userIdSelector);
 
-  const handleAddMore = (product: any) => {
-	  dispatch(addItem(product));
+	const handleAddMore = (product: any) => {
+		dispatch(addItem(product));
 	};
 
-  const handleRemoveItem = (product: any) => {
-	  dispatch(removeItem(product));
+	const handleRemoveItem = (product: any) => {
+		dispatch(removeItem(product));
 	};
 
-  const handleDeleteItem = (product: any) => {
-	  dispatch(deleteItem(product));
+	const handleDeleteItem = (product: any) => {
+		dispatch(deleteItem(product));
 	};
 
 	const subtotal = cartItems.reduce(
@@ -81,12 +83,12 @@ const MyCart = () => {
 						</Typography>
 					</div>
 					{cartItems.map(cartItem => (
-						<React.Fragment key={cartItem.data.id}>
+						<React.Fragment key={cartItem.data._id}>
 							<Card sx={{ display: 'flex', mb: 2, boxShadow: 'none', mt: 4 }}>
 								<CardMedia
 									component="img"
 									sx={{ width: 151 }}
-									image={cartItem.data.images?.[0]}
+									image={cartItem.data.image}
 									alt={cartItem.data.title}
 								/>
 								<Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
@@ -109,7 +111,7 @@ const MyCart = () => {
 												<IconButton
 													sx={{ fontSize: '14px', textAlign: 'left' }}
 													onClick={() => {
-														handleDeleteItem(cartItem.data.id)
+														handleDeleteItem(cartItem.data._id);
 													}}
 												>
 													<DeleteIcon />
@@ -118,12 +120,12 @@ const MyCart = () => {
 											</div>
 											<div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
 												<IconButton
-													onClick={() => handleRemoveItem(cartItem.data.id)}
+													onClick={() => handleRemoveItem(cartItem.data._id)}
 													disabled={cartItem.quantity <= 1}
 												>
 													<RemoveIcon />
 												</IconButton>
-												<Typography variant='body2'>{cartItem.quantity}</Typography>
+												<Typography variant="body2">{cartItem.quantity}</Typography>
 												<IconButton onClick={() => handleAddMore(cartItem.data)}>
 													<AddIcon />
 												</IconButton>
@@ -214,29 +216,56 @@ const MyCart = () => {
 							</div>
 						</CardContent>
 						<CardActions>
-							<Button
-								fullWidth
-								variant="contained"
-								color="primary"
-								onClick={() => navigate('/checkout')}
-								sx={{
-									mt: '8px',
-									fontWeight: 'bold',
-									fontSize: 20,
-									border: '2px solid',
-									borderColor: 'primary.main',
-									borderRadius: '8px',
-									py: 1,
-									px: 7,
-									width: '100%',
-									color: 'white',
-									mb: '24px',
-									ml: '24px',
-									mr: '24px',
-								}}
-							>
-								Checkout
-							</Button>
+							{isLoggedIn !== undefined ? (
+								<Button
+									fullWidth
+									variant="contained"
+									color="primary"
+									onClick={() => navigate('/checkout')}
+									sx={{
+										mt: '8px',
+										fontWeight: 'bold',
+										fontSize: 20,
+										border: '2px solid',
+										borderColor: 'primary.main',
+										borderRadius: '8px',
+										py: 1,
+										px: 7,
+										width: '100%',
+										color: 'white',
+										mb: '24px',
+										ml: '24px',
+										mr: '24px',
+									}}
+									disabled={cartItems.length === 0}
+								>
+									Checkout
+								</Button>
+							) : (
+								<Button
+									fullWidth
+									variant="contained"
+									color="primary"
+									onClick={() => navigate('/login')}
+									sx={{
+										mt: '8px',
+										fontWeight: 'bold',
+										fontSize: 20,
+										border: '2px solid',
+										borderColor: 'primary.main',
+										borderRadius: '8px',
+										py: 1,
+										px: 7,
+										width: '100%',
+										color: 'white',
+										mb: '24px',
+										ml: '24px',
+										mr: '24px',
+									}}
+								>
+									Please login
+								</Button>
+							)}
 						</CardActions>
 					</Card>
 				</Grid>

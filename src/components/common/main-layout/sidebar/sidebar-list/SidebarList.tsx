@@ -6,12 +6,15 @@ import { sidebarItems } from './sidebar-items/sidebarItems';
 import SidebarListItem from './sidebar-list-item/SidebarListItem';
 import { useAppDispatch } from '../../../../../hooks/redux/redux';
 import { setUserId } from '../../../../../store/auth/slice';
+import { useNavigate } from 'react-router-dom';
 
 const SidebarList = () => {
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 
 	const handleLogOut = () => {
 		dispatch(setUserId(undefined));
+		navigate('/');
 	};
 	return (
 		<List

@@ -15,7 +15,7 @@ import SignUpPage from '../pages/sign-up';
 import UserDetails from '../pages/user-details';
 import CheckoutPage from '../pages/checkout';
 import MyCartPage from '../pages/my-cart';
-import ProductDetailPage from '../pages/produt-detail';
+import ProductDetailPage from '../pages/product-detail';
 import CamerasPage from '../pages/cameras';
 import FavoritesPage from '../pages/favorites';
 import TvsPage from '../pages/tvs';
@@ -144,7 +144,7 @@ const router = createBrowserRouter([
 		),
 	},
 	{
-		path: '/product-detail',
+		path: '/product/:id',
 		element: (
 			<Suspense fallback={<PageLoading />}>
 				<ProductDetailPage />

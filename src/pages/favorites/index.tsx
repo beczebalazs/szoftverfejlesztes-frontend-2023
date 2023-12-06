@@ -10,7 +10,7 @@ const FavoritesPage = () => {
 	const favorites = useSelector(selectFavorites);
 	const [currentPage, setCurrentPage] = useState(1);
 
-	const itemsPerPage = 1;
+	const itemsPerPage = 8;
 	const handlePageChange = (event: ChangeEvent<unknown>, value: number) => {
 		setCurrentPage(value);
 		window.scrollTo({
@@ -22,6 +22,7 @@ const FavoritesPage = () => {
 		(currentPage - 1) * itemsPerPage,
 		currentPage * itemsPerPage,
 	);
+
 	return (
 		<MainLayout>
 			{favorites.length === 0 ? (
@@ -37,13 +38,13 @@ const FavoritesPage = () => {
 
 					<Grid container spacing={4} xs={12}>
 						{filteredFavorites?.map((data: any) => (
-							<Grid xs={'auto'} key={data.id}>
+							<Grid xs={'auto'} key={data._id}>
 								<ProductCard
-									key={data.id}
-									id={data.id}
+									key={data._id}
+									_id={data._id}
 									title={data.title}
 									price={data.price}
-									image={data.images?.[0]}
+									image={data.image}
 									rating={data.rating}
 								/>
 							</Grid>

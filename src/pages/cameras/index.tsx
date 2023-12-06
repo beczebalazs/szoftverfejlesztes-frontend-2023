@@ -6,7 +6,7 @@ import ProductsFilter from '../../components/products/products-filter/ProductsFi
 import useProductsQuery from '../../hooks/products/useProductsQuery';
 
 const CamerasPage = () => {
-    const cameras = useProductsQuery('cameras');
+	const cameras = useProductsQuery('cameras');
 	return (
 		<MainLayout>
 			<Grid container spacing={4}>
@@ -27,7 +27,7 @@ const CamerasPage = () => {
 						<Grid xs={'auto'} key={data.id}>
 							<ProductCard
 								key={data.id}
-								id={data.id}
+								_id={data.id}
 								title={data.title}
 								price={data.price}
 								image={data.images?.[0]}

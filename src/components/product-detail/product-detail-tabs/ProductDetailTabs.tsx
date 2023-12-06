@@ -8,7 +8,11 @@ import DescriptionsTab from './descriptions-tab/DescriptionsTab';
 import SpecificationsTab from './specifications-tab/SpecificationsTab';
 import ReviewsTab from './reviews-tab/ReviewsTab';
 
-export default function ProductDetailTabs() {
+interface Props {
+	longDescription: string;
+}
+
+const ProductDetailTabs: React.FC<Props> = props => {
 	const [value, setValue] = React.useState('1');
 
 	const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -18,15 +22,22 @@ export default function ProductDetailTabs() {
 	return (
 		<Box sx={{ width: '100%', typography: 'body1' }}>
 			<TabContext value={value}>
-				<Box sx={{ borderBottom: 1, borderColor: 'divider', backgroundColor: 'secondary.main', borderRadius:'8px' }}>
+				<Box
+					sx={{
+						borderBottom: 1,
+						borderColor: 'divider',
+						backgroundColor: 'secondary.main',
+						borderRadius: '8px',
+					}}
+				>
 					<TabList onChange={handleChange}>
-						<Tab label="Description" value="1" sx={{color:'white', marginRight: 4}} />
-						<Tab label="Additional Information" value="2" sx={{color:'white', marginRight: 4}} />
-						<Tab label="Reviews" value="3" sx={{color:'white', marginRight: 4}} />
+						<Tab label="Description" value="1" sx={{ color: 'white', marginRight: 4 }} />
+						<Tab label="Additional Information" value="2" sx={{ color: 'white', marginRight: 4 }} />
+						<Tab label="Reviews" value="3" sx={{ color: 'white', marginRight: 4 }} />
 					</TabList>
 				</Box>
 				<TabPanel value="1">
-					<DescriptionsTab />
+					<DescriptionsTab longDescription={props.longDescription} />
 				</TabPanel>
 				<TabPanel value="2">
 					<SpecificationsTab />
@@ -37,4 +48,7 @@ export default function ProductDetailTabs() {
 			</TabContext>
 		</Box>
 	);
-}
+};
+
+export default ProductDetailTabs;
+
