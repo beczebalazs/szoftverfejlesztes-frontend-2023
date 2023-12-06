@@ -3,8 +3,10 @@ import { Box, Typography, Button, Stack, Paper, Grid } from '@mui/material';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import SecurityIcon from '@mui/icons-material/Security';
 import ReplayIcon from '@mui/icons-material/Replay';
+import { useNavigate } from 'react-router-dom';
 
 const HomeDescription = () => {
+  const navigate = useNavigate();
   return (
     <Box sx={{ my: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Box sx={{ mb: 4, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
@@ -32,6 +34,7 @@ const HomeDescription = () => {
                 px: 4,
                 color: 'neutral.10',
               }}
+              onClick={() => navigate('/phones')}
             >
               Start Buying
             </Button>
