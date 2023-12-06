@@ -8,16 +8,16 @@ const useLoginForm = () => {
 	const validationSchema = yup.object({
 		email: yup
 			.string()
-			.email('loginTextfields.validEmail')
-			.required('loginTextfields.requiredEmail'),
+			.email('Not a valid email')
+			.required('Is reguired'),
 		password: yup
 			.string()
-			.min(8, 'signupTextfields.least8Characters')
-			.matches(/[A-Z]/, 'signupTextfields.uppercasePassword')
-			.matches(/[a-z]/, 'signupTextfields.lowercasePassword')
-			.matches(/[0-9]/, 'signupTextfields.numberPassword')
-			.matches(/[!@#$%^&*()_+\-=[\]{};':"|,.<>/?]/, 'signupTextfields.symbolPassword')
-			.required('loginTextfields.requiredPassword'),
+			.min(8, 'Min 8 charachters')
+			.matches(/[A-Z]/, 'Min 1 upparcase')
+			.matches(/[a-z]/, 'Min 1 lowercase')
+			.matches(/[0-9]/, 'Min 1 number')
+			.matches(/[!@#$%^&*()_+\-=[\]{};':"|,.<>/?]/, 'Min 1 symbol')
+			.required('Is reguired'),
 	});
 
 	return useForm<LoginPayload>({
