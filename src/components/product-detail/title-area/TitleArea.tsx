@@ -27,10 +27,15 @@ const TitleArea: FC<Props> = props => {
 
 	const findProduct = productQuery.data?.find((product: any) => product._id === id);
 
-	const product = {
-		...findProduct,
-		image: findProduct.images[0],
-	};
+	let product: any;
+
+	if (findProduct) {
+		product = {
+			...findProduct,
+			image: findProduct.images[0],
+		};
+	}
+	
 
 	const isFavorite = favorite.some(fav => fav._id === id);
 
