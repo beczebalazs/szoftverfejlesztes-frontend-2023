@@ -17,6 +17,7 @@ const usePostReviewMutation = () => {
 		},
 		onSuccess: async () => {
 			await queryClient.invalidateQueries({ queryKey: ['/reviews'] });
+			await queryClient.invalidateQueries({ queryKey: ['/products'] });
 			enqueueSnackbar('Success! You added a review.', {
 				variant: 'success',
 			});
