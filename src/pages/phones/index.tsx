@@ -61,7 +61,7 @@ const PhonesPage = () => {
 						/>
 						<ProductsFilter
 							title="Brand"
-							options={['Samsung', 'Iphone', 'Xiaomi', 'Huawei', 'Google', 'LG']}
+							options={['Samsung', 'Iphone', 'Xiaomi', 'Huawei', 'Google', 'LG', 'Motorola']}
 							setFilter={setBrandFilter}
 							selectedFilters={brandFilter}
 						/>
